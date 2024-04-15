@@ -1,4 +1,4 @@
-#include "managewidget.h"
+﻿#include "managewidget.h"
 #include "ui_managewidget.h"
 
 ManageWidget::ManageWidget(QWidget *parent) :

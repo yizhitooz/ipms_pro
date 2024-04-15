@@ -1,5 +1,8 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "RechargeWidget.h"
+#include "managewidget.h"
+#include "chargerulewidget.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -28,9 +31,9 @@ MainWindow::~MainWindow()
 void MainWindow::initDatabase()
 {
     database = new QSqlDatabase;
-    *database = QSqlDatabase::addDatabase("QMYSQL");
+    *database = QSqlDatabase::addDatabase("QMYQSL");
     //数据库IP
-    database->setHostName("10.33.60.188");
+    database->setHostName("127.0.0.1");
     //数据库端口
     database->setPort(3306);
     //数据库名
@@ -42,11 +45,11 @@ void MainWindow::initDatabase()
     //开启数据库
     if(database->open())
     {
-       database_open = true;
+        database_open = true;
     }
     else
     {
-        qDebug() << "database disopen" << endl;
+        qDebug() << "database not open";
     }
 }
 
@@ -86,10 +89,10 @@ void MainWindow::initLevel()
 {
     switch (level)
     {
-        case 0:ui->chargeRulePageButton->setEnabled(false);
-        case 1:ui->managePageButton->setEnabled(false);
-        case 2:
-        default:
+    case 0:ui->chargeRulePageButton->setEnabled(false);
+    case 1:ui->managePageButton->setEnabled(false);
+    case 2:
+    default:
         break;
     }
 }
@@ -266,7 +269,7 @@ void MainWindow::on_chargeRulePageButton_clicked()
     charge_rule_widget->show();
     connect(charge_rule_widget,&ChargeRuleWidget::money_change,[=]{
         setPrice();
-//        qDebug() << price;
+        //        qDebug() << price;
     });
 }
 
@@ -304,7 +307,7 @@ void MainWindow::on_inButton_clicked()
     //检测该车是否登记
     QString str = QString("select * from vehicle "
                           "where vehicleID = '%1'")
-                            .arg(vehicleId);
+                      .arg(vehicleId);
 
     query.exec(str);
     //未登记则进行登记
@@ -319,7 +322,7 @@ void MainWindow::on_inButton_clicked()
     //检测该车是否已在库中
     str = QString("select * from parkinginformation "
                   "where vehicleID = '%1'and isfinish = 'no'")
-                    .arg(vehicleId);
+              .arg(vehicleId);
 
     query.exec(str);
     if(!query.next())
@@ -327,7 +330,7 @@ void MainWindow::on_inButton_clicked()
         str = QString("insert into parkinginformation "
                       "(vehicleID,inTime,isfinish,entrance) "
                       "values('%1','%2','no',%3)")
-                        .arg(vehicleId).arg(current_time.toString("yyyy-MM-dd hh:mm:ss")).arg(place);
+                  .arg(vehicleId).arg(current_time.toString("yyyy-MM-dd hh:mm:ss")).arg(place);
         query.exec(str);
         inAndOutClean();
         showInfo(vehicleId,place,0,current_time,2);
@@ -358,26 +361,26 @@ void MainWindow::on_outButton_clicked()
     //检测该车是否登记
     QString str = QString("select * from vehicle "
                           "where vehicleID = '%1'")
-                            .arg(vehicleId);
+                      .arg(vehicleId);
     query.exec(str);
     //未登记则进行登记
     if(!query.next())
     {
         str = QString("insert into vehicle (vehicleID) "
                       "values('%1')")
-                        .arg(vehicleId);
+                  .arg(vehicleId);
         query.exec(str);
     }
     //检测该车是否已在库中
     str = QString("select * from parkinginformation "
                   "where vehicleID = '%1' and isfinish = 'no'")
-                    .arg(vehicleId);
+              .arg(vehicleId);
 
     query.exec(str);
     if(!query.next())
     {
-         QMessageBox::information(this,"警告","该车未在库中");
-         return;
+        QMessageBox::information(this,"警告","该车未在库中");
+        return;
     }
     else {
         QDateTime in_time = query.value(2).toDateTime();
@@ -418,7 +421,7 @@ void MainWindow::on_outButton_clicked()
         str = QString("update parkinginformation "
                       "set outTime = '%1', bill = %2, isfinish = 'yes', exitgoal = %3 "
                       "where vehicleID = '%4' and isfinish = 'no'")
-                        .arg(current_time.toString("yyyy-MM-dd hh:mm:ss")).arg(bill).arg(place).arg(vehicleId);
+                  .arg(current_time.toString("yyyy-MM-dd hh:mm:ss")).arg(bill).arg(place).arg(vehicleId);
         query.exec(str);
 
         reduceCurrentNum();

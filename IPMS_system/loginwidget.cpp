@@ -1,5 +1,6 @@
-#include "loginwidget.h"
+﻿#include "loginwidget.h"
 #include "ui_loginwidget.h"
+
 LoginWidget::LoginWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LoginWidget)
@@ -8,10 +9,10 @@ LoginWidget::LoginWidget(QWidget *parent) :
     // 定义样式表
 
     QString styleSheet = "QLineEdit { background-color: white;"
-                     "border-width: 5px; border-style: solid; border-color: gray;"
-                     "border-radius: 10px; padding: 0px 10px; }"
-                     "QLineEdit:hover { background-color: lightgray; color: black; }"
-                     "QLineEdit:focus { background-color: lightblue; }";
+                         "border-width: 5px; border-style: solid; border-color: gray;"
+                         "border-radius: 10px; padding: 0px 10px; }"
+                         "QLineEdit:hover { background-color: lightgray; color: black; }"
+                         "QLineEdit:focus { background-color: lightblue; }";
     /*原输入框设计
     QLineEdit{
         border-width:5px;

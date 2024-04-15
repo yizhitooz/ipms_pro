@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
@@ -9,10 +9,6 @@
 #include <QThread>
 #include <QTimer>
 #include <QDebug>
-#include "loginwidget.h"
-#include "chargerulewidget.h"
-#include "managewidget.h"
-#include "rechargewidget.h"
 
 #define TIMEOUT (3 * 1000)
 

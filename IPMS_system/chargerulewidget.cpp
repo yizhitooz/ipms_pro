@@ -1,4 +1,4 @@
-#include "chargerulewidget.h"
+﻿#include "chargerulewidget.h"
 #include "ui_chargerulewidget.h"
 
 ChargeRuleWidget::ChargeRuleWidget(QWidget *parent) :
@@ -51,14 +51,14 @@ void ChargeRuleWidget::on_changeButton_clicked()
 void ChargeRuleWidget::set_method_label()
 {
 
-     QSqlQuery query("select * from chargingmethod");
-     double moneys[4];
-     int i = 0;
-     while (query.next())
-     {
-         moneys[i] = query.value(2).toDouble();
-         i++;
-     }
-     QString method_infomation = QString("年卡:%1元     季卡:%2元\n月卡:%3元    每小时:%4元").arg(moneys[0]).arg(moneys[1]).arg(moneys[2]).arg(moneys[3]);
-     ui->methodLabel->setText(method_infomation);
+    QSqlQuery query("select * from chargingmethod");
+    double moneys[4];
+    int i = 0;
+    while (query.next())
+    {
+        moneys[i] = query.value(2).toDouble();
+        i++;
+    }
+    QString method_infomation = QString("年卡:%1元     季卡:%2元\n月卡:%3元    每小时:%4元").arg(moneys[0]).arg(moneys[1]).arg(moneys[2]).arg(moneys[3]);
+    ui->methodLabel->setText(method_infomation);
 }

@@ -1,4 +1,4 @@
-#ifndef LOGINWIDGET_H
+﻿#ifndef LOGINWIDGET_H
 #define LOGINWIDGET_H
 
 #include <QWidget>
@@ -20,7 +20,7 @@ public:
     ~LoginWidget();
 
     int getLevel();
-     void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event);
 signals:
     void level_sent(int level);
     void unlogin_close_signals();

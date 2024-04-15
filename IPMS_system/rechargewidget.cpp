@@ -1,4 +1,4 @@
-#include "rechargewidget.h"
+﻿#include "rechargewidget.h"
 #include "ui_rechargewidget.h"
 
 RechargeWidget::RechargeWidget(QWidget *parent) :
@@ -40,18 +40,18 @@ void RechargeWidget::on_pushButton_clicked()
     //检查该车是否登记
     QString str = QString("select * from vehicle "
                           "where vehicleID = '%1'")
-                            .arg(vehicleId);
+                      .arg(vehicleId);
     query.exec(str);
     //未登记则先登记
     if(!query.next())
     {
         str = QString("insert into vehicle (vehicleID) "
                       "values('%1')")
-                        .arg(vehicleId);
+                  .arg(vehicleId);
         query.exec(str);
         str = QString("select * from vehicle "
                       "where vehicleID = '%1'")
-                        .arg(vehicleId);
+                  .arg(vehicleId);
         query.exec(str);
         time = current_time.addDays(date);
         str = QString("update vehicle set packageDay = '%1'").arg(time.toString("yyyy-MM-dd hh:mm:ss"));

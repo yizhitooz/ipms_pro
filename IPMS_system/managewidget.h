@@ -1,4 +1,4 @@
-#ifndef MANAGEWIDGET_H
+﻿#ifndef MANAGEWIDGET_H
 #define MANAGEWIDGET_H
 
 #include <QWidget>

@@ -1,4 +1,4 @@
-#ifndef RECHARGEWIDGET_H
+﻿#ifndef RECHARGEWIDGET_H
 #define RECHARGEWIDGET_H
 
 #include <QWidget>
@@ -6,6 +6,7 @@
 #include <QSqlQuery>
 #include <QDateTime>
 #include <QDebug>
+
 namespace Ui {
 class RechargeWidget;
 }

@@ -1,4 +1,4 @@
-#ifndef CHARGERULEWIDGET_H
+﻿#ifndef CHARGERULEWIDGET_H
 #define CHARGERULEWIDGET_H
 
 #include <QWidget>
