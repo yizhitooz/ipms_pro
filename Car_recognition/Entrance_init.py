@@ -42,7 +42,7 @@ if __name__ == '__main__':
 
     total_detect = sum(p.numel() for p in detect_model.parameters())
     total_plate = sum(p.numel() for p in plate_rec_model.parameters())
-    print("detect params: %.2fM,rec params: %.2fM" % (total_detect / 1e6, total_plate / 1e6))
+    # print("detect params: %.2fM,rec params: %.2fM" % (total_detect / 1e6, total_plate / 1e6))
 
     # 初始化距离传感器和摄像头
     sensor = DistanceSensor(trigger=sensor_tri, echo=sensor_echo)  # 传感器
@@ -80,21 +80,26 @@ if __name__ == '__main__':
             plate_color = ', '.join([item['plate_color'] for item in dict_list if 'plate_color' in item])
             plate_no = ', '.join([item['plate_no'] for item in dict_list if 'plate_no' in item])
             plate_confidence = [item['score'] for item in dict_list if 'plate_no' in item]
+            if plate_confidence < 0.9:
+                print("车牌不可信")
+                continue
             if plate_no:
                 timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
                 if (plate_color == '绿色') and (len(plate_no) == 8):
-                    # print("新能源绿牌汽车")
-                    # print(f"车牌号码: {plate_no}")
+                    print("新能源绿牌汽车")
+                    print(f"车牌号码: {plate_no}")
                     insert_data_when_enter(timestamp, plate_no, "新能源小汽车", car_color)
                 elif (plate_color == '蓝色') and (len(plate_no) == 7):
-                        # print("普通蓝牌汽车")
-                        # print(f"车牌号码: {plate_no}")
+                    print("普通蓝牌汽车")
+                    print(f"车牌号码: {plate_no}")
                     insert_data_when_enter(timestamp, plate_no, "普通汽车", car_color)
                 else:
                     os.remove(f"./imgs/{filename}.jpg")
-                    #print("车牌不合法或不在考虑的范围")
-                    #print(f"车牌号码: {plate_no}")
+                    os.remove(f"./{save_img_path}/{filename}".jpg)
+                    print("车牌不合法或不在考虑的范围")
+                    print(f"车牌号码: {plate_no}")
             else:
                 os.remove(f"./imgs/{filename}.jpg")
+                os.remove(f"./{save_img_path}/{filename}".jpg)
 
 
