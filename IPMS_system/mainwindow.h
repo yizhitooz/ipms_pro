@@ -4,11 +4,13 @@
 #include <QMainWindow>
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QSqlError>
 #include <QSqlTableModel>
 #include <QDateTime>
 #include <QThread>
 #include <QTimer>
 #include <QDebug>
+#include <QDir>
 
 #define TIMEOUT (3 * 1000)
 

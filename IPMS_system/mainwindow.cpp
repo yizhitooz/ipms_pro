@@ -4,6 +4,13 @@
 #include "managewidget.h"
 #include "chargerulewidget.h"
 
+#define _USE_MYSQL 0
+#if _USE_MYSQL
+#define _USE_SQLITE 0
+#else
+#define _USE_SQLITE 1
+#endif
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -31,6 +38,7 @@ MainWindow::~MainWindow()
 void MainWindow::initDatabase()
 {
     database = new QSqlDatabase;
+#if _USE_MYSQL
     *database = QSqlDatabase::addDatabase("QMYQSL");
     //数据库IP
     database->setHostName("127.0.0.1");
@@ -42,14 +50,21 @@ void MainWindow::initDatabase()
     database->setUserName("root");
     //数据库密码
     database->setPassword("123456");
+#elif _USE_SQLITE
+    *database = QSqlDatabase::addDatabase("QSQLITE");
+    database->setUserName("uzalwong.local");
+    database->setPassword("@Dg281764");
+    // database->setPort(0);
+    database->setHostName("raspberrypi.local");
+    QString databaseFilePath = QDir::homePath() + "/Code/IMPS_Pro/Car_recognition/ipms.db";
+    database->setDatabaseName(databaseFilePath);
+    //database->setDatabaseName("/home/uzalwong/Code/IMPS_Pro/Car_recognition/ipms.db");
+#endif
     //开启数据库
-    if(database->open())
-    {
-        database_open = true;
-    }
-    else
-    {
-        qDebug() << "database not open";
+    if (!database->open()) {
+        qDebug() << "Error: Failed to open database:" << database->lastError().text();
+    } else {
+        qDebug() << "Database opened successfully.";
     }
 }
 
