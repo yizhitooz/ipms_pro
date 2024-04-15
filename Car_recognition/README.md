@@ -6,7 +6,7 @@
 
 #### **图片测试demo:**
 
-```
+```bash
 python Car_recognition.py --detect_model weights/detect.pt  --rec_model weights/plate_rec_color.pth --image_path imgs --output result
 ```
 
@@ -29,19 +29,19 @@ python Car_recognition.py --detect_model weights/detect.pt  --rec_model weights/
    车辆标注不需要关键点 关键点全部置为-1即可
 2. **修改 data/widerface.yaml    train和val路径,换成你的数据路径**
 
-   ```
+   ```yaml
    train: /your/train/path #修改成你的路径
    val: /your/val/path     #修改成你的路径
    # number of classes
    nc: 3                #这里用的是3分类，0 单层车牌 1 双层车牌 2 车辆
-
+   
    # class names
    names: [ 'single_plate','double_plate','Car'] 
-
+   
    ```
 3. **训练**
 
-   ```
+   ```bash
    python3 train.py --data data/plateAndCar.yaml --cfg models/yolov5n-0.5.yaml --weights weights/detect.pt --epoch 250
    ```
 
@@ -58,13 +58,3 @@ python Car_recognition.py --detect_model weights/detect.pt  --rec_model weights/
 * [https://github.com/we0091234/Chinese_license_plate_detection_recognition](https://github.com/we0091234/Chinese_license_plate_detection_recognition)
 * [https://github.com/deepcam-cn/yolov5-face](https://github.com/deepcam-cn/yolov5-face)
 * [https://github.com/meijieru/crnn.pytorch](https://github.com/meijieru/crnn.pytorch)
-
-## TODO
-
-车型，车辆颜色，品牌等。
-
-## 联系
-
-**有问题可以提issues 或者加qq群 823419837 询问**
-
-![Image text](image/README/1.png)
