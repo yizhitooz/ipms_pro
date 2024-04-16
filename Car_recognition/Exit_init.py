@@ -1,5 +1,5 @@
 """
-停车场入口初始化
+停车场出口初始化
 """
 import argparse
 import os
