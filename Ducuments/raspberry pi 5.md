@@ -1,5 +1,7 @@
 # 树莓派 5 
 
+<img src="./Raspberry Pi 5.assets/23551-Raspberry-Pi-5-8G_(cropped).jpg" alt="img" style="zoom:80%;" />
+
 ## GPIO 与 40 针引脚指引
 
 树莓派的一个显著特点是其顶部边缘的一排**通用输入/输出（GPIO）引脚**。目前市面上所有的树莓派型号都配备了一个40针的GPIO接口。值得注意的是，在树莓派Zero系列（包括树莓派Zero、树莓派Zero W和树莓派Zero 2 W）中，这些引脚是未焊接状态。所有型号的GPIO接口针脚间距均为标准的0.1英寸（2.54毫米）。
@@ -129,4 +131,12 @@ pause()
   picam2.capture_file("test.jpg") 
   ```
 
-  
+
+## UPS_HAT(B)（第三方硬件）
+
+适用于Raspberry Pi的不间断电源(UPS)模块，采用弹簧顶针设计，支持同时充电和放电,可提供稳定5V电压输出,可达5A大电流输出，可通过I2C接口监测电池的电压、电流、功率等参数。
+
+<img src="./Raspberry Pi 5.assets/800px-UPS-HAT-B-3.jpg" alt="UPS-HAT-B-3.jpg" style="zoom: 67%;" />
+
+参见：[UPS HAT (B) - Waveshare Wiki](https://www.waveshare.net/wiki/UPS_HAT_(B))
+
