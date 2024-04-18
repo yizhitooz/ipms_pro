@@ -49,6 +49,8 @@
 
 #### GPIO Zero 模块
 
+参见：[GPIO ZERO 文档](https://gpiozero.readthedocs.io/en/stable/index.html)
+
 ##### 距离传感器
 
 <img src="./Raspberry Pi 5.assets/image-20240416164831659.png" alt="image-20240416164831659" style="zoom:50%;" />
