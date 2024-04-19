@@ -1,2 +1,6 @@
 .qtc_clangd/
 *.idx
+tmp/
+build/
+object/
+.*/
