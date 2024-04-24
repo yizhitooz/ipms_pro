@@ -29,7 +29,7 @@ train.py
 
 #### 车牌识别数据集CCPD+CRPD
 
-1. 从CCPD和CRPD截下来的车牌小图以及我自己收集的一部分车牌 有需要的话加qq群获取:823419837
+1. 从CCPD和CRPD截下来的车牌小图以及原作者收集的一部分车牌。
 2. 数据集打上标签,生成train.txt和val.txt
 
    ![Image text](images/tmp2E.png)
@@ -160,6 +160,3 @@ src_path 是数据路径， dst_path是保存的数据路径
 - https://github.com/meijieru/crnn.pytorch
 - [https://github.com/Sierkinhane/CRNN_Chinese_Characters_Rec](https://github.com/Sierkinhane/CRNN_Chinese_Characters_Rec)
 
-#### 联系
-
-**有问题可以提issues 或者加qq群:823419837 询问**
