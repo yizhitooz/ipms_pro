@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.yizhitooz</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>Server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>SpringbootServer</name>
     <description>SpringbootServer</description>
