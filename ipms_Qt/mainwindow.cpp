@@ -4,7 +4,7 @@
 #include "managewidget.h"
 #include "chargerulewidget.h"
 
-#define _USE_MYSQL 0
+#define _USE_MYSQL 1
 #if _USE_MYSQL
 #define _USE_SQLITE 0
 #else
@@ -39,7 +39,7 @@ void MainWindow::initDatabase()
 {
     database = new QSqlDatabase;
 #if _USE_MYSQL
-    *database = QSqlDatabase::addDatabase("QMYQSL");
+    *database = QSqlDatabase::addDatabase("QMYSQL");
     //数据库IP
     database->setHostName("127.0.0.1");
     //数据库端口
