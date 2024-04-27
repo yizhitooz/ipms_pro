@@ -91,6 +91,9 @@ void LoginWidget::on_loginButton_clicked()
         QMessageBox::information(this,"提示","密码不能为空");
         return;
     }
+    #if _USE_SPRINGBOOT
+    
+    #else
     QString sql = QString("select * from authority where account = '%1'").arg(account);
     QSqlQuery query(sql);
     if(query.next())
@@ -108,5 +111,6 @@ void LoginWidget::on_loginButton_clicked()
             this->close();
         }
     }
+    #endif
 }
 
