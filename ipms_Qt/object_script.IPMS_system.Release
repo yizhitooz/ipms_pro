@@ -1,0 +1,12 @@
+release/chargerulewidget.o
+release/loginwidget.o
+release/main.o
+release/mainwindow.o
+release/managewidget.o
+release/rechargewidget.o
+release/qrc_res.o
+release/moc_chargerulewidget.o
+release/moc_loginwidget.o
+release/moc_mainwindow.o
+release/moc_managewidget.o
+release/moc_rechargewidget.o
