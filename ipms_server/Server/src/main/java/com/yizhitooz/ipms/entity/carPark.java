@@ -5,13 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 @Data
 @Builder
-public class Vehicle {
+public class carPark {
     private String plate;
-    private Integer ownerId;
-    private String dueDate;
+    private int id;
+    private String location;
+    private int parkingLotId;
 }

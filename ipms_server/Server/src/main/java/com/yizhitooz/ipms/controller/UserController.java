@@ -31,8 +31,21 @@ public class UserController {
     @PostMapping("/change")
     public Result changePasswordPhoneLevel(@RequestBody User user) {
         try {
-            userService.updatePasswordPhoneLevel(user);
-            return Result.success();
+            User userOnServer = userService.select(user.getAccount());
+            // 判断密码需不需要更改
+            if(user.getPassword()!=null&&!user.getPassword().equals(userOnServer.getPassword())){
+                userOnServer.setPassword(user.getPassword());
+            }
+            // 判断电话需不要更改
+            if(user.getPhoneNumber()!=null&&!user.getPhoneNumber().equals(userOnServer.getPassword())){
+                userOnServer.setPhoneNumber(user.getPhoneNumber());
+            }
+            // 判断权限等级是否需要更改
+            if(user.getLevel()!=null&&!user.getLevel().equals(userOnServer.getLevel())){
+                userOnServer.setLevel(user.getLevel());
+            }
+            userService.updatePasswordPhoneLevel(userOnServer);
+            return Result.success(userOnServer);
         } catch (SQLException e) {
             return Result.error("数据库错误: " + e.getMessage());
         } catch (Exception e) {

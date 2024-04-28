@@ -38,6 +38,8 @@ public:
             LoginWidget->setObjectName(QString::fromUtf8("LoginWidget"));
         LoginWidget->setWindowModality(Qt::ApplicationModal);
         LoginWidget->resize(634, 537);
+        LoginWidget->setMinimumSize(QSize(634, 537));
+        LoginWidget->setMaximumSize(QSize(634, 537));
         LoginWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(92, 92, 92);\n"
 ""));
         label_title = new QLabel(LoginWidget);
@@ -133,7 +135,7 @@ public:
         label_4->setText(QString());
         label_title02->setText(QCoreApplication::translate("LoginWidget", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600; font-style:italic;\">\351\251\266\345\207\272\347\225\205\351\200\232</span></p></body></html>", nullptr));
         label->setText(QString());
-        label_5->setText(QCoreApplication::translate("LoginWidget", "<html><head/><body><p><span style=\" font-size:9pt;\">\346\231\272\350\203\275\345\201\234\350\275\246\347\256\241\347\220\206\347\263\273\347\273\237</span></p></body></html>", nullptr));
+        label_5->setText(QCoreApplication::translate("LoginWidget", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:700;\">\346\231\272\350\203\275\345\201\234\350\275\246\347\256\241\347\220\206\347\263\273\347\273\237</span></p></body></html>", nullptr));
     } // retranslateUi
 
 };

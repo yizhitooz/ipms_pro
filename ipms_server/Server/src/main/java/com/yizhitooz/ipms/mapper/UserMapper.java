@@ -13,7 +13,7 @@ public interface UserMapper {
     void insert(User user);
 
     @Update("UPDATE user " +
-            "SET password = #{password}, phoneNum = #{phoneNumber}, level = #{level} " +
+            "SET password = #{password}, phoneNumber = #{phoneNumber}, level = #{level} " +
             "WHERE userID = #{userID}")
     void updatePasswordPhoneLevel(User user);
 

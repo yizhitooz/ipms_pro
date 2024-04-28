@@ -23,6 +23,7 @@ class Ui_ManageWidget
 {
 public:
     QVBoxLayout *verticalLayout;
+    QPushButton *pushButton;
     QComboBox *peopleComboBox;
     QLabel *informationLabel;
     QComboBox *levelComboBox;
@@ -40,6 +41,11 @@ public:
 ""));
         verticalLayout = new QVBoxLayout(ManageWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        pushButton = new QPushButton(ManageWidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+
+        verticalLayout->addWidget(pushButton);
+
         peopleComboBox = new QComboBox(ManageWidget);
         peopleComboBox->addItem(QString());
         peopleComboBox->setObjectName(QString::fromUtf8("peopleComboBox"));
@@ -134,6 +140,7 @@ public:
     void retranslateUi(QWidget *ManageWidget)
     {
         ManageWidget->setWindowTitle(QCoreApplication::translate("ManageWidget", "\347\256\241\347\220\206", nullptr));
+        pushButton->setText(QCoreApplication::translate("ManageWidget", "\345\210\267\346\226\260\344\272\272\345\221\230\345\210\227\350\241\250", nullptr));
         peopleComboBox->setItemText(0, QCoreApplication::translate("ManageWidget", "\350\257\267\351\200\211\346\213\251\344\272\272\345\221\230", nullptr));
 
         informationLabel->setText(QCoreApplication::translate("ManageWidget", "\344\272\272\345\221\230\344\277\241\346\201\257", nullptr));
