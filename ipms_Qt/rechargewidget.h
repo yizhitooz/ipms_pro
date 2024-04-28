@@ -6,6 +6,12 @@
 #include <QSqlQuery>
 #include <QDateTime>
 #include <QDebug>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QJsonDocument>
+#include <QJsonObject>
+
+#define _USE_SPRINGBOOT 1
 
 namespace Ui {
 class RechargeWidget;
@@ -17,6 +23,7 @@ class RechargeWidget : public QWidget
 
 public:
     explicit RechargeWidget(QWidget *parent = nullptr);
+    void onNetworkReplyFinished(QNetworkReply *reply);
     ~RechargeWidget();
 
 private slots:
@@ -24,6 +31,7 @@ private slots:
 
 private:
     Ui::RechargeWidget *ui;
+    QNetworkReply *reply;
 };
 
 #endif // RECHARGEWIDGET_H
