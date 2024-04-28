@@ -25,7 +25,6 @@ public:
 
     int getLevel();
     void closeEvent(QCloseEvent *event);
-    friend void onNetworkReplyFinished(QNetworkReply *reply);
 signals:
     void level_sent(int level);
     void unlogin_close_signals();

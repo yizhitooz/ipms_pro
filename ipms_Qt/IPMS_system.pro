@@ -26,7 +26,6 @@ CONFIG += c++11
 RC_ICONS = parking.ico
 
 SOURCES += \
-        User.cpp \
         chargerulewidget.cpp \
         loginwidget.cpp \
         main.cpp \
@@ -35,7 +34,6 @@ SOURCES += \
         rechargewidget.cpp
 
 HEADERS += \
-        User.h \
         chargerulewidget.h \
         loginwidget.h \
         mainwindow.h \

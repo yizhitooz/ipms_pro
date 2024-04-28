@@ -77,7 +77,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/search/{id}")
+    @GetMapping("/search/id/{id}")
     public Result selectByID(@PathVariable Integer id) {
         try {
             User user = userService.select(id);
@@ -89,16 +89,26 @@ public class UserController {
         }
     }
 
-    @GetMapping("/login/{account}")
-    public Result login(@PathVariable String account) {
-        System.out.println("有登录请求");
+    @GetMapping("/search/account/{account}")
+    public Result selectByID(@PathVariable String account) {
         try {
-            User user= userService.select(account);
+            User user = userService.select(account);
             return Result.success(user);
         } catch (SQLException e) {
             return Result.error("数据库错误: " + e.getMessage());
         } catch (Exception e) {
             return Result.error("其他错误: " + e.getMessage());
         }
+    }
+
+    @PostMapping("/login/")
+    public Result login(@RequestBody User user) throws SQLException {
+        User userOnServer = userService.select(user.getAccount());
+        if (userOnServer.getPassword().equals(user.getPassword())) {
+            user.setLevel(userOnServer.getLevel());
+            return Result.success(user);
+        }
+        else
+            return Result.error();
     }
 }

@@ -1,7 +1,6 @@
 ﻿#include "loginwidget.h"
 #include "ui_loginwidget.h"
 #include "mainwindow.h"
-#include "User.h"
 
 LoginWidget::LoginWidget(QWidget *parent) :
     QWidget(parent),
@@ -94,14 +93,26 @@ void LoginWidget::on_loginButton_clicked()
         return;
     }
 #if _USE_SPRINGBOOT
+    // 创建对象并设置属性
+    QJsonObject jsonObject;
+    jsonObject["account"] = account;
+    jsonObject["password"] = password;
+
+    // 将对象转换为JSON格式的数据
+    QJsonDocument jsonDocument(jsonObject);
+    QByteArray jsonData = jsonDocument.toJson();
+
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     QNetworkRequest request;
 
     // 设置请求的URL
-    request.setUrl(QUrl("http://localhost:8080/user/login/baoan2"));
+    request.setUrl(QUrl("http://localhost:8080/user/login/"));
 
-    // 发送GET请求
-    QNetworkReply *reply = manager->get(request);
+    // 设置请求头
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    // 发送POST请求，并将JSON数据发送到服务器
+    reply = manager->post(request, jsonData);
 
     // 连接网络请求的完成信号
     connect(reply, &QNetworkReply::finished, [=]() {
@@ -160,16 +171,13 @@ void LoginWidget::onNetworkReplyFinished(QNetworkReply *reply)
             if (jsonObj.contains("data") && jsonObj["data"].isObject()) {
                 QJsonObject dataObj = jsonObj["data"].toObject();
 
-                // 提取 userID 和 level 字段的值
-                if (dataObj.contains("userID") && dataObj["userID"].isDouble()) {
-                    int userID = dataObj["userID"].toInt();
-                    qDebug() << "User ID:" << userID;
+                if (dataObj.contains("level") && dataObj["level"].isDouble()) {
+                    level = dataObj["level"].toInt();
                 }
 
-                if (dataObj.contains("level") && dataObj["level"].isDouble()) {
-                    int level = dataObj["level"].toInt();
-                    qDebug() << "Level:" << level;
-                }
+                islogin = true;
+                emit level_sent(level);
+                this->close();
             }
         } else {
             // 提取错误消息
@@ -180,7 +188,7 @@ void LoginWidget::onNetworkReplyFinished(QNetworkReply *reply)
         }
     } else {
         // 打印错误信息
-        qDebug() << "Error:" << reply->errorString();
+        QMessageBox::information(this,"提示","账号或密码错误");
     }
 
     // 释放资源
