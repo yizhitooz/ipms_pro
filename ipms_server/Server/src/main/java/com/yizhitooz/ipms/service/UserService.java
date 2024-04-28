@@ -43,4 +43,8 @@ public class UserService {
     public User select(String account) throws SQLException {
         return userMapper.selectByAccount(account);
     }
+
+    public List<User> selectManager()  throws SQLException  {
+        return userMapper.selectManager();
+    }
 }

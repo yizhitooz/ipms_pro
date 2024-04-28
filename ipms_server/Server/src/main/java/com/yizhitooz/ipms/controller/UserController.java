@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -66,9 +67,21 @@ public class UserController {
     @GetMapping("/search/all")
     public Result selectAll() {
         try {
-            List<User> users= userService.select();
-            User user=users.get(0);
-            System.out.println("name:"+user.getUserName());
+            List<User> users = userService.select();
+            User user = users.get(0);
+            System.out.println("name:" + user.getUserName());
+            return Result.success(users);
+        } catch (SQLException e) {
+            return Result.error("数据库错误: " + e.getMessage());
+        } catch (Exception e) {
+            return Result.error("其他错误: " + e.getMessage());
+        }
+    }
+
+    @GetMapping("/search/manager")
+    public Result selectManager() {
+        try {
+            List<User> users = userService.selectManager();
             return Result.success(users);
         } catch (SQLException e) {
             return Result.error("数据库错误: " + e.getMessage());
@@ -107,8 +120,7 @@ public class UserController {
         if (userOnServer.getPassword().equals(user.getPassword())) {
             user.setLevel(userOnServer.getLevel());
             return Result.success(user);
-        }
-        else
+        } else
             return Result.error();
     }
 }
