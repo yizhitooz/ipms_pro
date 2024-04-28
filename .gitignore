@@ -1,6 +1,7 @@
 .qtc_clangd/
 *.idx
 tmp/
+target/
 build/
 object/
 .*/

@@ -88,4 +88,17 @@ public class UserController {
             return Result.error("其他错误: " + e.getMessage());
         }
     }
+
+    @GetMapping("/login/{account}")
+    public Result login(@PathVariable String account) {
+        System.out.println("有登录请求");
+        try {
+            User user= userService.select(account);
+            return Result.success(user);
+        } catch (SQLException e) {
+            return Result.error("数据库错误: " + e.getMessage());
+        } catch (Exception e) {
+            return Result.error("其他错误: " + e.getMessage());
+        }
+    }
 }

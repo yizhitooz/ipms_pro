@@ -1,5 +1,7 @@
 ﻿#include "loginwidget.h"
 #include "ui_loginwidget.h"
+#include "mainwindow.h"
+#include "User.h"
 
 LoginWidget::LoginWidget(QWidget *parent) :
     QWidget(parent),
@@ -91,9 +93,23 @@ void LoginWidget::on_loginButton_clicked()
         QMessageBox::information(this,"提示","密码不能为空");
         return;
     }
-    #if _USE_SPRINGBOOT
-    
-    #else
+#if _USE_SPRINGBOOT
+    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+    QNetworkRequest request;
+
+    // 设置请求的URL
+    request.setUrl(QUrl("http://localhost:8080/user/login/baoan2"));
+
+    // 发送GET请求
+    QNetworkReply *reply = manager->get(request);
+
+    // 连接网络请求的完成信号
+    connect(reply, &QNetworkReply::finished, [=]() {
+        onNetworkReplyFinished(reply);
+        manager->deleteLater(); // 删除 manager
+    });
+
+#else
     QString sql = QString("select * from authority where account = '%1'").arg(account);
     QSqlQuery query(sql);
     if(query.next())
@@ -111,6 +127,63 @@ void LoginWidget::on_loginButton_clicked()
             this->close();
         }
     }
-    #endif
+#endif
+}
+
+void LoginWidget::onNetworkReplyFinished(QNetworkReply *reply)
+{
+    // 检查请求是否成功
+    if (reply->error() == QNetworkReply::NoError) {
+        // 读取响应数据
+        QByteArray responseData = reply->readAll();
+        qDebug() << "Response:" << responseData;
+
+        // 解析 JSON 数据
+        QJsonParseError parseError;
+        QJsonDocument jsonDoc = QJsonDocument::fromJson(responseData, &parseError);
+
+        if (parseError.error != QJsonParseError::NoError) {
+            qDebug() << "Failed to parse JSON:" << parseError.errorString();
+            return;
+        }
+
+        if (!jsonDoc.isObject()) {
+            qDebug() << "JSON is not an object.";
+            return;
+        }
+
+        QJsonObject jsonObj = jsonDoc.object();
+
+        // 检查响应中是否包含 code 字段，并且其值为 "200"
+        if (jsonObj.contains("code") && jsonObj["code"].isString() && jsonObj["code"].toString() == "200") {
+            // 检查响应中是否包含 data 字段
+            if (jsonObj.contains("data") && jsonObj["data"].isObject()) {
+                QJsonObject dataObj = jsonObj["data"].toObject();
+
+                // 提取 userID 和 level 字段的值
+                if (dataObj.contains("userID") && dataObj["userID"].isDouble()) {
+                    int userID = dataObj["userID"].toInt();
+                    qDebug() << "User ID:" << userID;
+                }
+
+                if (dataObj.contains("level") && dataObj["level"].isDouble()) {
+                    int level = dataObj["level"].toInt();
+                    qDebug() << "Level:" << level;
+                }
+            }
+        } else {
+            // 提取错误消息
+            if (jsonObj.contains("msg") && jsonObj["msg"].isString()) {
+                QString errorMsg = jsonObj["msg"].toString();
+                qDebug() << "Error message:" << errorMsg;
+            }
+        }
+    } else {
+        // 打印错误信息
+        qDebug() << "Error:" << reply->errorString();
+    }
+
+    // 释放资源
+    reply->deleteLater();
 }
 

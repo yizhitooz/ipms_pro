@@ -14,6 +14,16 @@
 
 #define TIMEOUT (3 * 1000)
 
+#define _USE_SPRINGBOOT 1 // 数据库使用 Springboot 微服务框架的形式连接
+#if USE_SPRINGBOOT
+#define _USE_MYSQL 1 // QDatabase 使用MYSQL
+#if _USE_MYSQL
+#define _USE_SQLITE 0 //QDatabase 使用MYSQL
+#else
+#define _USE_SQLITE 1
+#endif
+#endif
+
 
 namespace Ui {
 class MainWindow;
