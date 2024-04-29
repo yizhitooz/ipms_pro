@@ -1,49 +1,40 @@
 // index.js
-const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {
-      avatarUrl: defaultAvatarUrl,
-      nickName: '',
-    },
-    hasUserInfo: false,
-    canIUseGetUserProfile: wx.canIUse('getUserProfile'),
-    canIUseNicknameComp: wx.canIUse('input.type.nickname'),
+    parkingCapacity: 'XX/YY' // 初始实时容量数据
   },
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onChooseAvatar(e) {
-    const { avatarUrl } = e.detail
-    const { nickName } = this.data.userInfo
+  refreshCapacity: function () {
     this.setData({
-      "userInfo.avatarUrl": avatarUrl,
-      hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
+      parkingCapacity: 'Updated XX/YY' // 更新实时容量数据
     })
   },
-  onInputChange(e) {
-    const nickName = e.detail.value
-    const { avatarUrl } = this.data.userInfo
-    this.setData({
-      "userInfo.nickName": nickName,
-      hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
-    })
-  },
-  getUserProfile(e) {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-    wx.getUserProfile({
-      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
+  scanQRCode: function (_options) {
+    // 只允许从相机扫码
+    wx.scanCode({
+      onlyFromCamera: true,
+      success(res) {
         console.log(res)
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+        const parkingInfo = res.result
+        wx.navigateTo({
+          url: '/pages/charge/charge?info=' + encodeURIComponent(parkingInfo)
         })
       }
     })
   },
+  onTapOpenMap:function(_option){
+    wx.navigateTo({
+      url: '/pages/map/map'
+    })
+  },
+  // 以下是添加的部分，用于触发扫码功能
+  onTapScanQRCode: function () {
+    // 点击按钮时触发扫码功能
+    this.scanQRCode();
+  },
+  onTapPhoneCall:function(){
+    wx.makePhoneCall({
+      phoneNumber: '18172337091',
+    })
+  }
 })
