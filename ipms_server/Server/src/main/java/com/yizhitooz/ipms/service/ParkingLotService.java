@@ -1,2 +1,7 @@
-package com.yizhitooz.ipms.service;public class ParkingLotService {
+package com.yizhitooz.ipms.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class ParkingLotService {
 }

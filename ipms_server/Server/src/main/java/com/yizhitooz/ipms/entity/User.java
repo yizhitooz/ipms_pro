@@ -1,6 +1,8 @@
 package com.yizhitooz.ipms.entity;
 
-import lombok.*;
+
+import lombok.Builder;
+import lombok.Data;
 
 /**
  * 用户类

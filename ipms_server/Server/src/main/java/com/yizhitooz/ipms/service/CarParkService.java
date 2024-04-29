@@ -1,2 +1,7 @@
-package com.yizhitooz.ipms.service;public class CarParkService {
+package com.yizhitooz.ipms.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class CarParkService {
 }

@@ -19,4 +19,9 @@ public interface VehicleMapper {
 
     @Insert("INSERT INTO vehicle (plate, ownerId, dueDate) VALUES (#{plate}, #{ownerId}, #{dueDate}")
     void insert(Vehicle vehicle);
+
+    /**
+     *
+     */
+    @Update()
 }
