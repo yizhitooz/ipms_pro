@@ -3,8 +3,7 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/charge/charge",
-    "pages/map/map",
-    "pages/myself/myself"
+    "pages/map/map"
   ],
   "window": {
     "defaultTitle": "智能停车场管理系统"
