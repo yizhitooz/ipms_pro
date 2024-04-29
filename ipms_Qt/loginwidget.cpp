@@ -154,12 +154,12 @@ void LoginWidget::onNetworkReplyFinished(QNetworkReply *reply)
         QJsonDocument jsonDoc = QJsonDocument::fromJson(responseData, &parseError);
 
         if (parseError.error != QJsonParseError::NoError) {
-            qDebug() << "Failed to parse JSON:" << parseError.errorString();
+            QMessageBox::information(this,"错误","Failed to parse JSON:"+parseError.errorString());
             return;
         }
 
         if (!jsonDoc.isObject()) {
-            qDebug() << "JSON is not an object.";
+            QMessageBox::information(this,"错误","JSON is not an object.");
             return;
         }
 
@@ -183,7 +183,7 @@ void LoginWidget::onNetworkReplyFinished(QNetworkReply *reply)
             // 提取错误消息
             if (jsonObj.contains("msg") && jsonObj["msg"].isString()) {
                 QString errorMsg = jsonObj["msg"].toString();
-                qDebug() << "Error message:" << errorMsg;
+                QMessageBox::information(this,"错误","Error message:" + errorMsg);
             }
         }
     } else {

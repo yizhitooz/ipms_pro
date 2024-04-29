@@ -59,6 +59,6 @@ void ChargeRuleWidget::set_method_label()
         moneys[i] = query.value(2).toDouble();
         i++;
     }
-    QString method_infomation = QString("年卡:%1元     季卡:%2元\n月卡:%3元    每小时:%4元").arg(moneys[0]).arg(moneys[1]).arg(moneys[2]).arg(moneys[3]);
+    QString method_infomation = QString("年卡:%1元     季卡:%2元\n月卡:%3元    每15分钟:%1元").arg(moneys[0]).arg(moneys[1]).arg(moneys[2]).arg(moneys[3]);
     ui->methodLabel->setText(method_infomation);
 }
