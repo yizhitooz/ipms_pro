@@ -7,7 +7,6 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-
     @Insert("INSERT INTO user (userID, account, userName, password, phoneNumber, level) " +
             "VALUES (#{userID}, #{account}, #{userName}, #{password}, #{phoneNumber}, #{level})")
     void insert(User user);

@@ -17,11 +17,10 @@ public interface VehicleMapper {
     @Update("UPDATE vehicle SET dueDate = #{dueDate} WHERE plate = #{plate}")
     int update(Vehicle vehicle);
 
+    /**
+     * 新增车辆记录
+     * @param vehicle
+     */
     @Insert("INSERT INTO vehicle (plate, ownerId, dueDate) VALUES (#{plate}, #{ownerId}, #{dueDate}")
     void insert(Vehicle vehicle);
-
-    /**
-     *
-     */
-    @Update()
 }
