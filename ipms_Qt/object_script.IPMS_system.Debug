@@ -1,0 +1,12 @@
+debug/chargerulewidget.o
+debug/loginwidget.o
+debug/main.o
+debug/mainwindow.o
+debug/managewidget.o
+debug/rechargewidget.o
+debug/qrc_res.o
+debug/moc_chargerulewidget.o
+debug/moc_loginwidget.o
+debug/moc_mainwindow.o
+debug/moc_managewidget.o
+debug/moc_rechargewidget.o
