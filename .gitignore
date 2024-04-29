@@ -7,3 +7,7 @@ object/
 .*/
 venv
 debug/
+*.DEBUG
+*.RELEASE
+tmp/
+Debug*/
