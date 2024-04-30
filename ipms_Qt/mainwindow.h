@@ -11,8 +11,12 @@
 #include <QTimer>
 #include <QDebug>
 #include <QDir>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QJsonDocument>
+#include <QJsonObject>
 
-#define TIMEOUT (3 * 1000)
+#define TIMEOUT (10 * 10000)
 
 #define _USE_SPRINGBOOT 1 // 数据库使用 Springboot 微服务框架的形式连接
 #if USE_SPRINGBOOT
@@ -52,6 +56,9 @@ public:
     bool reduceCurrentNum();
     void showInfo(const QString &vehicleId,const QString &place,double bill,QDateTime &time,int flag);
     void inAndOutClean();
+    void onNetworkReplyFinishedOnMainWindowLoad(QNetworkReply *reply);
+    bool onNetworkReplyFinishedOnCheck(QNetworkReply *reply);
+    void onNetworkReplyOnEnter(QNetworkReply *replay);
 
 public slots:
     void unlogin();
@@ -82,7 +89,9 @@ private slots:
 
     void on_AllInformatioButton_clicked();
 
+    void on_ParkingLotComboBox_currentIndexChanged(int index);
 
+    void on_pushButtonCheck_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -95,6 +104,7 @@ private:
     int max_num;
     int current_num;
     QTimer *timer;
+    QNetworkReply *reply;
 
 };
 

@@ -467,17 +467,7 @@ QPushButton:hover{
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="placeLineEdit">
-             <property name="styleSheet">
-              <string notr="true">QLineEdit{
-	border-width:2px;
-	border-style:solid;
-	border-color:gray;
-	border-radius:10px;
-	padding: 2px 2px;
-}</string>
-             </property>
-            </widget>
+            <widget class="QComboBox" name="ParkingLotComboBox"/>
            </item>
           </layout>
          </item>
@@ -494,6 +484,19 @@ QPushButton:hover{
         </property>
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;出入场信息&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButtonCheck">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>20</y>
+          <width>92</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>刷新</string>
         </property>
        </widget>
       </widget>
@@ -552,12 +555,12 @@ QPushButton:hover{
            <widget class="QDateEdit" name="dateEdit">
             <property name="dateTime">
              <datetime>
-              <hour>0</hour>
+              <hour>8</hour>
               <minute>0</minute>
               <second>1</second>
-              <year>2023</year>
-              <month>1</month>
-              <day>1</day>
+              <year>2022</year>
+              <month>12</month>
+              <day>31</day>
              </datetime>
             </property>
            </widget>
@@ -660,7 +663,7 @@ QPushButton:hover{
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>23</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>

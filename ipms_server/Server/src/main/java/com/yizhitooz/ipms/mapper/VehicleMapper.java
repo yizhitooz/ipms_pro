@@ -12,7 +12,7 @@ public interface VehicleMapper {
     Vehicle selectByPlate(String plate);
 
     /**
-     * 更新车辆车位租赁到期日
+     * 更新车辆车位租赁到期日parki
      */
     @Update("UPDATE vehicle SET dueDate = #{dueDate} WHERE plate = #{plate}")
     int update(Vehicle vehicle);
@@ -21,6 +21,6 @@ public interface VehicleMapper {
      * 新增车辆记录
      * @param vehicle
      */
-    @Insert("INSERT INTO vehicle (plate, ownerId, dueDate) VALUES (#{plate}, #{ownerId}, #{dueDate}")
+    @Insert("INSERT INTO vehicle (plate, ownerId, dueDate) VALUES (#{plate}, #{ownerId}, #{dueDate})")
     void insert(Vehicle vehicle);
 }

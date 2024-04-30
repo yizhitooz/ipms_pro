@@ -5,6 +5,8 @@ import com.yizhitooz.ipms.mapper.ParkingRecordMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ParkingRecordService {
     @Autowired
@@ -19,5 +21,13 @@ public class ParkingRecordService {
                 updateExitDateTimeAndFee(parkingRecord.getPlate(),
                                          parkingRecord.getExitDateTime(),
                                          parkingRecord.getFee());
+    }
+
+    public int addParkingRecord(ParkingRecord parkingRecord) {
+        return parkingRecordMapper.insert(parkingRecord);
+    }
+
+    public List<ParkingRecord> getByPlate(String plate) {
+        return parkingRecordMapper.selectByPlate(plate);
     }
 }

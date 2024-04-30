@@ -22,7 +22,7 @@ Page({
                         'plate=' + encodeURIComponent(parkingInfo.plate) +
                         '&id=' + encodeURIComponent(parkingInfo.id)
                 })
-            },fail(res){
+            },fail(_res){
                 wx.showToast({
                   title: '扫码失败',
                   icon:'error'

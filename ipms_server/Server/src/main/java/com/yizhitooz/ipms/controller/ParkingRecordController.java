@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @RestController
 @RequestMapping(("/parking/record"))
 public class ParkingRecordController {
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     @Autowired
     ParkingRecordService parkingRecordService;
     @Autowired
@@ -37,7 +39,6 @@ public class ParkingRecordController {
 
     @PostMapping("/exit")
     public Result exitParkingRecord(@RequestBody ParkingRecord parkingRecord) {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         ParkingRecord parkingRecordOnServer = parkingRecordService.selectById(parkingRecord.getId());
         if (parkingRecordOnServer == null) {
             return Result.error();
@@ -60,5 +61,25 @@ public class ParkingRecordController {
 
         parkingRecordService.updateWhenExit(parkingRecordOnServer);
         return Result.success(parkingRecordOnServer);
+    }
+
+    @PostMapping("/enter")
+    public Result enterParkingRecord(@RequestBody ParkingRecord parkingRecord) {
+        if (parkingRecord.getPlate() == null) {
+            return Result.error();
+        } else {
+            Vehicle vehicleOnServer = vehicleService.search(parkingRecord.getPlate());
+            if (vehicleOnServer == null) {
+                vehicleOnServer = Vehicle.builder().plate(parkingRecord.getPlate()).build();
+                vehicleService.insert(vehicleOnServer);
+            }
+        }
+        List<ParkingRecord> parkingRecordsOnServer =parkingRecordService.getByPlate(parkingRecord.getPlate());
+        if(!parkingRecordsOnServer.isEmpty()){
+            return Result.error("车辆已经入库");
+        }
+        parkingRecord.setEnterDateTime(LocalDateTime.now().format(dtf));
+        parkingRecordService.addParkingRecord(parkingRecord);
+        return Result.success(parkingRecord);
     }
 }

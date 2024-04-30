@@ -1,20 +1,25 @@
 <!-- pages/charge/map.wxml -->
 <view class="container">
-  <view class="map-container">
-    <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" show-location="true">
-      <!-- 显示用户当前位置 -->
-      <marker longitude="{{longitude}}" latitude="{{latitude}}" label="我的位置" icon="/images/my_location.png"></marker>
-      <!-- 显示车辆位置 -->
-      <marker longitude="{{carLongitude}}" latitude="{{carLatitude}}" label="车辆位置" icon="/images/car_location.png"></marker>
-    </map>
-  </view>
+    <view class="map-container">
+        <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" show-location="true">
+            <!-- 显示用户当前位置 -->
+            <marker longitude="{{longitude}}" latitude="{{latitude}}" label="我的位置" icon="/images/my_location.png"></marker>
+            <!-- 显示车辆位置 -->
+            <marker longitude="{{carLongitude}}" latitude="{{carLatitude}}" label="车辆位置" icon="/images/car_location.png"></marker>
+        </map>
+    </view>
 
-  <view class="input-container">
-    <input class="input" type="text" placeholder="请输入车牌号" bindinput="inputChange" />
-    <button class="btn" bindtap="search">查找</button>
-  </view>
+    <view class="input-container">
+        <input class="input" type="text" placeholder="请输入车牌号" bindinput="inputChange" />
+        <button class="btn" bindtap="search">查找</button>
+    </view>
 
-  <view class="nav-btn-container">
-    <button class="nav-btn" bindtap="navigate" disabled="{{!canNavigate}}">导航</button>
-  </view>
+    <view class="nav-btn-container">
+        <button class="nav-btn" bindtap="navigate" disabled="{{!canNavigate}}">导航至我的车辆</button>
+    </view>
+
+    <view class="nav-btn-container">
+        <button>导航至停车场出入口(观音山)</button>
+        <button>导航至停车场出入口(南大门)</button>
+    </view>
 </view>

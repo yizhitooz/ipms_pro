@@ -6,8 +6,9 @@ import lombok.Data;
 @Data
 @Builder
 public class ParkingLot {
-    private int parkingLotId;
-    private int maxCarPark;
-    private int currentCarPark;
+    private Integer id;
+    private String name;
+    private Integer maxCarPark;
+    private Integer currentCarPark;
     private String location;
 }

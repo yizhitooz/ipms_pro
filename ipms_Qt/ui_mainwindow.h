@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
@@ -54,8 +55,9 @@ public:
     QLineEdit *vehicleIDLineEdit;
     QHBoxLayout *horizontalLayout_6;
     QLabel *label_8;
-    QLineEdit *placeLineEdit;
+    QComboBox *ParkingLotComboBox;
     QLabel *billLabel;
+    QPushButton *pushButtonCheck;
     QWidget *informationPage;
     QVBoxLayout *verticalLayout_3;
     QPushButton *AllInformatioButton;
@@ -417,17 +419,10 @@ public:
 
         horizontalLayout_6->addWidget(label_8);
 
-        placeLineEdit = new QLineEdit(layoutWidget);
-        placeLineEdit->setObjectName(QString::fromUtf8("placeLineEdit"));
-        placeLineEdit->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
-"	border-width:2px;\n"
-"	border-style:solid;\n"
-"	border-color:gray;\n"
-"	border-radius:10px;\n"
-"	padding: 2px 2px;\n"
-"}"));
+        ParkingLotComboBox = new QComboBox(layoutWidget);
+        ParkingLotComboBox->setObjectName(QString::fromUtf8("ParkingLotComboBox"));
 
-        horizontalLayout_6->addWidget(placeLineEdit);
+        horizontalLayout_6->addWidget(ParkingLotComboBox);
 
 
         verticalLayout_4->addLayout(horizontalLayout_6);
@@ -435,6 +430,9 @@ public:
         billLabel = new QLabel(inAndOutPage);
         billLabel->setObjectName(QString::fromUtf8("billLabel"));
         billLabel->setGeometry(QRect(360, 130, 301, 291));
+        pushButtonCheck = new QPushButton(inAndOutPage);
+        pushButtonCheck->setObjectName(QString::fromUtf8("pushButtonCheck"));
+        pushButtonCheck->setGeometry(QRect(250, 20, 92, 28));
         stackedWidget->addWidget(inAndOutPage);
         informationPage = new QWidget();
         informationPage->setObjectName(QString::fromUtf8("informationPage"));
@@ -481,7 +479,7 @@ public:
 
         dateEdit = new QDateEdit(informationPage);
         dateEdit->setObjectName(QString::fromUtf8("dateEdit"));
-        dateEdit->setDateTime(QDateTime(QDate(2023, 1, 1), QTime(0, 0, 1)));
+        dateEdit->setDateTime(QDateTime(QDate(2022, 12, 31), QTime(8, 0, 1)));
 
         horizontalLayout_4->addWidget(dateEdit);
 
@@ -576,7 +574,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 800, 23));
+        menuBar->setGeometry(QRect(0, 0, 800, 24));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -610,6 +608,7 @@ public:
         label_7->setText(QCoreApplication::translate("MainWindow", "\350\275\246\347\211\214\345\217\267:", nullptr));
         label_8->setText(QCoreApplication::translate("MainWindow", "\346\243\200\346\237\245\345\217\243:", nullptr));
         billLabel->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">\345\207\272\345\205\245\345\234\272\344\277\241\346\201\257</span></p></body></html>", nullptr));
+        pushButtonCheck->setText(QCoreApplication::translate("MainWindow", "\345\210\267\346\226\260", nullptr));
         AllInformatioButton->setText(QCoreApplication::translate("MainWindow", "\345\216\206\345\217\262\345\201\234\350\275\246\344\277\241\346\201\257", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "\350\275\246\347\211\214\345\217\267:", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "\346\227\245\346\234\237", nullptr));
