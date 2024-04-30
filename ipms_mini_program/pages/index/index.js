@@ -16,13 +16,16 @@ Page({
             success(res) {
                 console.log(res)
                 const parkingInfo = JSON.parse(res.result)
-                wx.request({
-                  url: 'url',
-                })
+
                 wx.navigateTo({
                     url: '/pages/charge/charge?' +
                         'plate=' + encodeURIComponent(parkingInfo.plate) +
                         '&id=' + encodeURIComponent(parkingInfo.id)
+                })
+            },fail(res){
+                wx.showToast({
+                  title: '扫码失败',
+                  icon:'error'
                 })
             }
         })

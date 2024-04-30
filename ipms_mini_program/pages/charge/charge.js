@@ -43,6 +43,15 @@ Page({
         // 获取传递过来的停车信息
         var that = this
         console.log(options)
+        if(options.plate==null||options.id==null){
+            navigateBack({
+                delta:1
+            })
+            wx.showToast({
+              title: '二维码错误',
+              icon:'error'
+            })
+        }
         const plate = decodeURIComponent(options.plate)
         const id = parseInt(options.id)
         this.setData({
