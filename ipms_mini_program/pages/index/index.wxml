@@ -1,26 +1,26 @@
 <!-- index.wxml -->
 <view class="container">
-  <!-- 导航栏 -->
-  <view class="navbar">
-    <text class="navbar-title">智能停车场管理系统</text>
-  </view>
+    <!-- 导航栏 -->
+    <view class="navbar">
+        <text class="navbar-title">智能停车场管理系统</text>
+    </view>
 
-  <!-- Banner -->
-  <view class="banner">
-    <image class="banner-image" src="https://example.com/banner.jpg"></image>
-  </view>
+    <!-- Banner -->
+    <view class="banner">
+        <image class="banner-image" src="https://example.com/banner.jpg"></image>
+    </view>
 
-  <!-- 实时容量 -->
-  <view class="parking-info">
-      <text class="parking-capacity">实时容量：</text><br />
-      <text>{{parkingCapacity}}</text>
-    <button class="refresh-button" bindtap="refreshCapacity">手动刷新</button>
-  </view>
+    <!-- 实时容量 -->
+    <view class="parking-info">
+        <text class="parking-capacity">实时容量：</text><br />
+        <text>{{parkingCapacity}}</text>
+        <button class="refresh-button" bindtap="refreshCapacity">手动刷新</button>
+    </view>
 
-  <!-- 四个大按键 -->
-  <view class="buttons">
-    <button class="button" hover-class="button-hover" bind:tap="onTapScanQRCode">👋我要出场</button>
-    <button class="button" hover-class="button-hover" bind:tap="onTapOpenMap">🚗我要找车</button>
-    <button class="button" hover-class="button-hover" bind:tap="onTapPhoneCall">📞我要帮助</button>
-  </view>
+    <!-- 三大功能按键 -->
+    <view class="buttons">
+        <button class="button" hover-class="button-hover" bind:tap="onTapScanQRCode">👋我要离开</button>
+        <button class="button" hover-class="button-hover" bind:tap="onTapOpenMap">🚗我要找车</button>
+        <button class="button" hover-class="button-hover" bind:tap="onTapPhoneCall">📞我要帮助</button>
+    </view>
 </view>

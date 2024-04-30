@@ -27,12 +27,12 @@ public class VehicleController {
      * @return
      */
     @PostMapping("/charge")
-    public Result selectVehicle(@RequestBody Vehicle vehicle) {
+    public Result selectVehicleCharge(@RequestBody Vehicle vehicle) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String plate = vehicle.getPlate();
         Vehicle vehicleOnServer = vehicleService.search(plate);
         if (vehicleOnServer != null) {
-            if (vehicleOnServer.getDueDate()==null){
+            if (vehicleOnServer.getDueDate() == null) {
                 vehicleOnServer.setDueDate(dtf.format(LocalDateTime.now()));
             }
             LocalDateTime dueDateOnServer = LocalDateTime.parse(vehicleOnServer.getDueDate(), dtf); // 服务器上的到期日期
@@ -55,5 +55,11 @@ public class VehicleController {
             vehicleService.insert(vehicle);
         }
         return Result.success(vehicle);
+    }
+
+    @PostMapping("/search")
+    public Result selectVehicle(@RequestBody Vehicle vehicle) {
+        Vehicle vehicleOnServer = vehicleService.search(vehicle.getPlate());
+        return Result.success(vehicleOnServer);
     }
 }

@@ -1,10 +1,10 @@
 <!-- parkingInfoPage.wxml -->
 <view class="container">
-  <!-- 停车信息 -->
-  <view class="parking-info">
-    <text class="parking-details">停车信息：...</text>
-  </view>
+    <!-- 停车信息 -->
+    <view class="parking-info">
+        <text class="parking-details" id="info_text">{{parkingDetails}}</text>
+    </view>
 
-  <!-- 缴费按钮 -->
-  <button class="pay-button" bindtap="onTapPay">缴费</button>
+    <!-- 缴费按钮 -->
+    <button class="pay-button" bindtap="onTapPay" id="charge_btn" disabled="{{btn_disable}}">缴费</button>
 </view>

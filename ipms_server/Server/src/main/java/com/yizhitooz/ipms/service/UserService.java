@@ -32,7 +32,7 @@ public class UserService {
         }
     }
 
-    public List<User> select()  throws SQLException  {
+    public List<User> select() throws SQLException {
         return userMapper.selectAll();
     }
 
@@ -44,7 +44,7 @@ public class UserService {
         return userMapper.selectByAccount(account);
     }
 
-    public List<User> selectManager()  throws SQLException  {
+    public List<User> selectManager() throws SQLException {
         return userMapper.selectManager();
     }
 }

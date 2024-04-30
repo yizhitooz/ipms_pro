@@ -3,6 +3,7 @@ package com.yizhitooz.ipms.mapper;
 import com.yizhitooz.ipms.entity.ParkingRecord;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 @Mapper
@@ -15,4 +16,7 @@ public interface ParkingRecordMapper {
             "SET ExitDateTime = #{exitDateTime}, fee = #{fee} " +
             "WHERE plate = #{plate} AND ExitDateTime IS NULL")
     int updateExitDateTimeAndFee(String plate, String exitDateTime, double fee);
+
+    @Select("SELECT * FROM parkingrecord WHERE id = #{id}")
+    ParkingRecord selectById(Integer id);
 }
