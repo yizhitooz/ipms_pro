@@ -12,7 +12,7 @@ public interface VehicleMapper {
     Vehicle selectByPlate(String plate);
 
     /**
-     * 更新车辆车位租赁到期日parki
+     * 更新车辆车位租赁到期日
      */
     @Update("UPDATE vehicle SET dueDate = #{dueDate} WHERE plate = #{plate}")
     int update(Vehicle vehicle);

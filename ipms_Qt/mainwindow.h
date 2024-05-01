@@ -59,6 +59,7 @@ public:
     void onNetworkReplyFinishedOnMainWindowLoad(QNetworkReply *reply);
     bool onNetworkReplyFinishedOnCheck(QNetworkReply *reply);
     void onNetworkReplyOnEnter(QNetworkReply *replay);
+    void onNetworkReplyOnExit(QNetworkReply *replay);
 
 public slots:
     void unlogin();

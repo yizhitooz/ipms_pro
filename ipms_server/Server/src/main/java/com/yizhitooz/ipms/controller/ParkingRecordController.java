@@ -25,9 +25,9 @@ public class ParkingRecordController {
     @Autowired
     VehicleService vehicleService;
 
-    @PostMapping("/search")
-    public Result searchParkingRecord(@RequestBody ParkingRecord parkingRecord) {
-        ParkingRecord parkingRecordOnServer = parkingRecordService.selectById(parkingRecord.getId());
+    @PostMapping("/search/id")
+    public Result searchParkingRecordById(@RequestBody ParkingRecord parkingRecord) {
+        ParkingRecord parkingRecordOnServer = parkingRecordService.getById(parkingRecord.getId());
         if (parkingRecordOnServer == null) {
             return Result.error();
         } else if (parkingRecord.getPlate().equals(parkingRecordOnServer.getPlate())) {
@@ -37,26 +37,44 @@ public class ParkingRecordController {
         }
     }
 
-    @PostMapping("/exit")
-    public Result exitParkingRecord(@RequestBody ParkingRecord parkingRecord) {
-        ParkingRecord parkingRecordOnServer = parkingRecordService.selectById(parkingRecord.getId());
-        if (parkingRecordOnServer == null) {
-            return Result.error();
+    @PostMapping("/search/all")
+    public Result searchParkingRecordByPlateAll(@RequestBody ParkingRecord parkingRecord) {
+        List<ParkingRecord> parkingRecordsOnServer = parkingRecordService.getByPlateAll(parkingRecord.getPlate());
+        if (parkingRecordsOnServer.isEmpty()) {
+           return Result.error("找不到记录");
+        } else{
+            return Result.success(parkingRecordsOnServer);
         }
+    }
+
+
+    @PostMapping("/exit")
+    public Result userExitParkingRecord(@RequestBody ParkingRecord parkingRecord) {
+        List<ParkingRecord> parkingRecordsOnServer = parkingRecordService.getByPlate(parkingRecord.getPlate());
+        if (parkingRecordsOnServer.isEmpty()) {
+            return Result.error("没有相关的登记信息");
+        } else if (parkingRecordsOnServer.size() > 1) {
+            return Result.error("有多个登记信息");
+        }
+        if (parkingRecord.getParkingLotId()==null) {
+            parkingRecord.setParkingLotId(parkingRecordsOnServer.get(0).getId());
+        }
+        ParkingRecord parkingRecordOnServer = parkingRecordsOnServer.get(0);
         parkingRecordOnServer.setExitDateTime(LocalDateTime.now().format(dtf));
         Vehicle vehicle = vehicleService.search(parkingRecordOnServer.getPlate());
-        LocalDateTime dueDateTime = LocalDateTime.parse(vehicle.getDueDate(), dtf);
-        LocalDateTime currentDateTime = LocalDateTime.now();
         String enterDateTimeString = parkingRecordOnServer.getEnterDateTime();
         LocalDateTime enterDateTime = LocalDateTime.parse(enterDateTimeString, dtf);
+        LocalDateTime currentDateTime = LocalDateTime.now();
         Duration duration = Duration.between(enterDateTime, currentDateTime);
         Double parkingHours = (double) (duration.toMinutes() / 60);
-
         Double parkingFee = (parkingHours / 24) * 60 + (parkingHours % 24) * 2;
-        parkingRecordOnServer.setFee(parkingFee);
 
-        if (dueDateTime.isAfter(currentDateTime)) {
-            parkingRecordOnServer.setFee(0.00);
+        parkingRecordOnServer.setFee(parkingFee);
+        if (vehicle.getDueDate() != null) {
+            LocalDateTime dueDateTime = LocalDateTime.parse(vehicle.getDueDate(), dtf);
+            if (dueDateTime.isAfter(currentDateTime)) {
+                parkingRecordOnServer.setFee(0.00);
+            }
         }
 
         parkingRecordService.updateWhenExit(parkingRecordOnServer);
@@ -66,7 +84,7 @@ public class ParkingRecordController {
     @PostMapping("/enter")
     public Result enterParkingRecord(@RequestBody ParkingRecord parkingRecord) {
         if (parkingRecord.getPlate() == null) {
-            return Result.error();
+            return Result.error("传入的车牌号为空");
         } else {
             Vehicle vehicleOnServer = vehicleService.search(parkingRecord.getPlate());
             if (vehicleOnServer == null) {
@@ -74,8 +92,8 @@ public class ParkingRecordController {
                 vehicleService.insert(vehicleOnServer);
             }
         }
-        List<ParkingRecord> parkingRecordsOnServer =parkingRecordService.getByPlate(parkingRecord.getPlate());
-        if(!parkingRecordsOnServer.isEmpty()){
+        List<ParkingRecord> parkingRecordsOnServer = parkingRecordService.getByPlate(parkingRecord.getPlate());
+        if (!parkingRecordsOnServer.isEmpty()) {
             return Result.error("车辆已经入库");
         }
         parkingRecord.setEnterDateTime(LocalDateTime.now().format(dtf));

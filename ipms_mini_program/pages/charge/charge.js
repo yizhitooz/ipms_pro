@@ -59,7 +59,7 @@ Page({
             id: id
         });
         wx.request({
-            url: 'http://localhost:8080/parking/record/search',
+            url: 'http://localhost:8080/parking/record/search/id',
             data: {
                 plate: this.data.plate,
                 id: this.data.id,

@@ -12,7 +12,7 @@ public class ParkingRecordService {
     @Autowired
     private ParkingRecordMapper parkingRecordMapper;
 
-    public ParkingRecord selectById(Integer id) {
+    public ParkingRecord getById(Integer id) {
         return parkingRecordMapper.selectById(id);
     }
 
@@ -29,5 +29,9 @@ public class ParkingRecordService {
 
     public List<ParkingRecord> getByPlate(String plate) {
         return parkingRecordMapper.selectByPlate(plate);
+    }
+
+    public List<ParkingRecord> getByPlateAll(String plate) {
+        return parkingRecordMapper.selectByPlateAll(plate);
     }
 }

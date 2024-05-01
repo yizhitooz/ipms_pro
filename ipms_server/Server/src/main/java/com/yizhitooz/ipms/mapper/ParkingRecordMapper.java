@@ -24,4 +24,7 @@ public interface ParkingRecordMapper {
 
     @Select("SELECT * FROM  parkingrecord WHERE plate= #{plate} AND exitDateTime IS NULL")
     List<ParkingRecord> selectByPlate(String plate);
+
+    @Select("SELECT * FROM  parkingrecord WHERE plate= #{plate}")
+    List<ParkingRecord> selectByPlateAll(String plate);
 }

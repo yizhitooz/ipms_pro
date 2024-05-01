@@ -12,8 +12,6 @@ import java.util.List;
 public class ParkingLotService {
     @Autowired
     ParkingLotMapper parkingLotMapper;
-    @Autowired
-    private ParkingRecordMapper parkingRecordMapper;
 
     public ParkingLot getParkingLot(int id) {
         return parkingLotMapper.selectById(id);

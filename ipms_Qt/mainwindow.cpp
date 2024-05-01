@@ -315,7 +315,7 @@ void MainWindow::on_inButton_clicked() {
         // 创建对象并设置属性
         QJsonObject jsonObject;
         jsonObject["plate"] = vehicleId;
-        jsonObject["password"] = place;
+        jsonObject["parkingLotId"] = place.toInt();
 
         // 将对象转换为JSON格式的数据
         QJsonDocument jsonDocument(jsonObject);
@@ -392,6 +392,33 @@ void MainWindow::on_outButton_clicked() {
         QMessageBox::information(this, "警告", "请输入车牌和检查口");
         return;
     }
+#if _USE_SPRINGBOOT
+    // 创建对象并设置属性
+    QJsonObject jsonObject;
+    jsonObject["plate"] = vehicleId;
+
+    // 将对象转换为JSON格式的数据
+    QJsonDocument jsonDocument(jsonObject);
+    QByteArray jsonData = jsonDocument.toJson();
+
+    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+    QNetworkRequest request;
+
+    // 设置请求的URL
+    request.setUrl(QUrl("http://localhost:8080/parking/record/exit"));
+
+    // 设置请求头
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    // 发送POST请求，并将JSON数据发送到服务器
+    reply = manager->post(request, jsonData);
+
+    // 连接网络请求的完成信号
+    connect(reply, &QNetworkReply::finished, [=]() {
+        onNetworkReplyOnExit(reply);
+        manager->deleteLater(); // 删除 manager
+    });
+#else
     QSqlQuery query;
     // 检测该车是否登记
     QString str = QString("select * from vehicle "
@@ -453,24 +480,26 @@ void MainWindow::on_outButton_clicked() {
                             .arg(place)
                             .arg(vehicleId);
         query.exec(str);
-
         reduceCurrentNum();
         inAndOutClean();
         showInfo(vehicleId, place, bill, current_time, 1);
     }
+#endif
 }
 /**********************************/
 
 void MainWindow::on_informationSearchButton_clicked() {
     QString vehicleId = ui->informationVehicleIDLineEdit->text();
     QDate date = ui->dateEdit->date();
+#if _USE_SPRINGBOOT
 
     QString str;
+#else
     if (!vehicleId.isEmpty()) {
         str += QString("(vehicleID like '%1%') and ").arg(vehicleId);
     }
-
     str += QString("(inTime like '%1%')").arg(date.toString("yyyy-MM-dd"));
+#endif
     information_table_model->setFilter(str);
     information_table_model->select();
 }
@@ -564,7 +593,6 @@ void MainWindow::on_pushButtonCheck_clicked()
 }
 
 void MainWindow::onNetworkReplyOnEnter(QNetworkReply *reply){
-    // 检查请求是否成功
     if (reply->error() == QNetworkReply::NoError) {
         // 读取响应数据
         QByteArray responseData = reply->readAll();
@@ -591,8 +619,8 @@ void MainWindow::onNetworkReplyOnEnter(QNetworkReply *reply){
             jsonObj["code"].toString() == "200") {
             // 检查响应中是否包含 data 字段
             QJsonObject dataObj = jsonObj["data"].toObject();
-
-
+            QString info = "车牌号:"+dataObj["plate"].toString()+"入库成功";
+            QMessageBox::information(this,"成功记录！",info);
         } else {
             // 提取错误消息
             if (jsonObj.contains("msg") && jsonObj["msg"].isString()) {
@@ -607,5 +635,59 @@ void MainWindow::onNetworkReplyOnEnter(QNetworkReply *reply){
 
     // 释放资源
     reply->deleteLater();
+    ui->vehicleIDLineEdit->clear();
+}
+
+void MainWindow::onNetworkReplyOnExit(QNetworkReply *reply){
+    // 检查请求是否成功
+    if (reply->error() == QNetworkReply::NoError) {
+        // 读取响应数据
+        QByteArray responseData = reply->readAll();
+        qDebug() << "Response:" << responseData;
+
+        // 解析 JSON 数据
+        QJsonParseError parseError;
+        QJsonDocument jsonDoc = QJsonDocument::fromJson(responseData, &parseError);
+
+        if (parseError.error != QJsonParseError::NoError) {
+            QMessageBox::information(this,"入库失败",parseError.errorString());
+            return;
+        }
+
+        if (!jsonDoc.isObject()) {
+            qDebug() << "JSON is not an object.";
+            return;
+        }
+
+        QJsonObject jsonObj = jsonDoc.object();
+
+        // 检查响应中是否包含 code 字段，并且其值为 "200"
+        if (jsonObj.contains("code") && jsonObj["code"].isString() &&
+            jsonObj["code"].toString() == "200") {
+            // 检查响应中是否包含 data 字段
+            QJsonObject dataObj = jsonObj["data"].toObject();
+            const QString billinfo =QString("车牌号:"+dataObj["plate"].toString()+
+                                             "\n入库时间:"+dataObj["enterDateTime"].toString()+
+                                             "\n出库时间:"+dataObj["exitDateTime"].toString()+
+                                             "\n应该缴纳的费用:"+QString::number(dataObj["fee"].toDouble()));
+            ui->billLabel->setText(billinfo);
+
+            QString info = "车牌号:"+dataObj["plate"].toString()+"出库成功";
+            QMessageBox::information(this,"出库成功！",info);
+        } else {
+            // 提取错误消息
+            if (jsonObj.contains("msg") && jsonObj["msg"].isString()) {
+                QString errorMsg = jsonObj["msg"].toString();
+                QMessageBox::critical(this, "出现错误", errorMsg);
+            }
+        }
+    } else {
+        // 打印错误信息
+        QMessageBox::information(this, "提示", "请求方法有误");
+    }
+
+    // 释放资源
+    reply->deleteLater();
+    ui->vehicleIDLineEdit->clear();
 }
 
