@@ -63,7 +63,8 @@ public:
 
         label = new QLabel(RechargeWidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setStyleSheet(QString::fromUtf8("font: 11pt \"\344\273\277\345\256\213\";"));
+        label->setStyleSheet(QString::fromUtf8("font: 11pt \"\346\261\211\344\273\252\346\226\207\351\273\221-65W\";\n"
+"color:rgb(54, 54, 54)"));
 
         horizontalLayout->addWidget(label);
 
@@ -93,21 +94,30 @@ public:
         annualRadioButton = new QRadioButton(groupBox);
         annualRadioButton->setObjectName(QString::fromUtf8("annualRadioButton"));
         annualRadioButton->setMinimumSize(QSize(0, 30));
-        annualRadioButton->setStyleSheet(QString::fromUtf8("font: 12pt \"\345\215\216\346\226\207\347\220\245\347\217\200\";"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("\346\261\211\344\273\252\346\226\207\351\273\221-85W"));
+        font.setPointSize(12);
+        font.setBold(false);
+        font.setItalic(false);
+        annualRadioButton->setFont(font);
+        annualRadioButton->setStyleSheet(QString::fromUtf8("font: 12pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
+"color: rgb(54, 54, 54);"));
 
         verticalLayout->addWidget(annualRadioButton);
 
         monthlyRadioButton = new QRadioButton(groupBox);
         monthlyRadioButton->setObjectName(QString::fromUtf8("monthlyRadioButton"));
         monthlyRadioButton->setMinimumSize(QSize(0, 30));
-        monthlyRadioButton->setStyleSheet(QString::fromUtf8("font: 12pt \"\345\215\216\346\226\207\347\220\245\347\217\200\";"));
+        monthlyRadioButton->setStyleSheet(QString::fromUtf8("font: 12pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
+"color: rgb(54, 54, 54);"));
 
         verticalLayout->addWidget(monthlyRadioButton);
 
         quarterlyRadioButton = new QRadioButton(groupBox);
         quarterlyRadioButton->setObjectName(QString::fromUtf8("quarterlyRadioButton"));
         quarterlyRadioButton->setMinimumSize(QSize(0, 30));
-        quarterlyRadioButton->setStyleSheet(QString::fromUtf8("font: 12pt \"\345\215\216\346\226\207\347\220\245\347\217\200\";"));
+        quarterlyRadioButton->setStyleSheet(QString::fromUtf8("font: 12pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
+"color: rgb(54, 54, 54);"));
 
         verticalLayout->addWidget(quarterlyRadioButton);
 
@@ -120,8 +130,14 @@ public:
         pushButton = new QPushButton(groupBox);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setMinimumSize(QSize(0, 40));
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("\346\261\211\344\273\252\346\226\207\351\273\221-85W"));
+        font1.setPointSize(14);
+        font1.setBold(false);
+        font1.setItalic(false);
+        pushButton->setFont(font1);
         pushButton->setStyleSheet(QString::fromUtf8("QPushButton:!hover{\n"
-"	font: 14pt \"\344\273\277\345\256\213\";\n"
+"	font: 14pt  \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	background-color: rgb(255, 255, 255,70);\n"
 "	\n"
 "	color: rgb(170, 170, 0);\n"
@@ -132,7 +148,7 @@ public:
 "        padding: 1px 1px;\n"
 "    }\n"
 "QPushButton:hover{\n"
-"	font: 14pt \"\344\273\277\345\256\213\";\n"
+"	font: 14pt  \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	background-color: rgb(123, 117, 69,70);\n"
 "	color: rgb(242, 230, 172);\n"
 "        border-width:1px;\n"
@@ -142,7 +158,7 @@ public:
 "        padding: 1px 1px;\n"
 "    }\n"
 "QPushButton:pressed{\n"
-"	font: 14pt \"\344\273\277\345\256\213\";\n"
+"	font: 14pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	background-color: rgb(123, 117, 69,40);\n"
 "	color: rgb(242, 230, 172);\n"
 "        border-width:1px;\n"

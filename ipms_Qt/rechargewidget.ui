@@ -42,7 +42,8 @@ background-color: rgb(247, 235, 183);
      <item>
       <widget class="QLabel" name="label">
        <property name="styleSheet">
-        <string notr="true">font: 11pt &quot;仿宋&quot;;</string>
+        <string notr="true">font: 11pt &quot;汉仪文黑-65W&quot;;
+color:rgb(54, 54, 54)</string>
        </property>
        <property name="text">
         <string>车牌号:</string>
@@ -91,8 +92,17 @@ background-color: rgb(247, 235, 183);
           <height>30</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>汉仪文黑-85W</family>
+          <pointsize>12</pointsize>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
         <property name="styleSheet">
-         <string notr="true">font: 12pt &quot;华文琥珀&quot;;</string>
+         <string notr="true">font: 12pt &quot;汉仪文黑-85W&quot;;
+color: rgb(54, 54, 54);</string>
         </property>
         <property name="text">
          <string>年卡(365天)</string>
@@ -108,7 +118,8 @@ background-color: rgb(247, 235, 183);
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">font: 12pt &quot;华文琥珀&quot;;</string>
+         <string notr="true">font: 12pt &quot;汉仪文黑-85W&quot;;
+color: rgb(54, 54, 54);</string>
         </property>
         <property name="text">
          <string>月卡(30天)</string>
@@ -124,7 +135,8 @@ background-color: rgb(247, 235, 183);
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">font: 12pt &quot;华文琥珀&quot;;</string>
+         <string notr="true">font: 12pt &quot;汉仪文黑-85W&quot;;
+color: rgb(54, 54, 54);</string>
         </property>
         <property name="text">
          <string>季卡(90天)</string>
@@ -154,9 +166,17 @@ background-color: rgb(247, 235, 183);
             <height>40</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <family>汉仪文黑-85W</family>
+            <pointsize>14</pointsize>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">QPushButton:!hover{
-	font: 14pt &quot;仿宋&quot;;
+	font: 14pt  &quot;汉仪文黑-85W&quot;;
 	background-color: rgb(255, 255, 255,70);
 	
 	color: rgb(170, 170, 0);
@@ -167,7 +187,7 @@ background-color: rgb(247, 235, 183);
         padding: 1px 1px;
     }
 QPushButton:hover{
-	font: 14pt &quot;仿宋&quot;;
+	font: 14pt  &quot;汉仪文黑-85W&quot;;
 	background-color: rgb(123, 117, 69,70);
 	color: rgb(242, 230, 172);
         border-width:1px;
@@ -177,7 +197,7 @@ QPushButton:hover{
         padding: 1px 1px;
     }
 QPushButton:pressed{
-	font: 14pt &quot;仿宋&quot;;
+	font: 14pt &quot;汉仪文黑-85W&quot;;
 	background-color: rgb(123, 117, 69,40);
 	color: rgb(242, 230, 172);
         border-width:1px;

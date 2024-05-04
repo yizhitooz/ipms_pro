@@ -25,6 +25,9 @@ background-color: rgb(247, 235, 183);
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QPushButton" name="pushButton">
+     <property name="styleSheet">
+      <string notr="true">	font: 75 10pt &quot;汉仪文黑-85W&quot;;</string>
+     </property>
      <property name="text">
       <string>刷新人员列表</string>
      </property>
@@ -36,7 +39,7 @@ background-color: rgb(247, 235, 183);
       <string notr="true">
 QComboBox:!hover{
 	background-color: rgb(255, 255, 255,30);
-	font: 14pt &quot;仿宋&quot;;
+	font: 14pt &quot;汉仪文黑-85W&quot;;
 	color: rgb(0, 0, 0);
         border-width:2px;
         border-style:solid;
@@ -65,7 +68,7 @@ QComboBox:hover{
    <item>
     <widget class="QLabel" name="informationLabel">
      <property name="styleSheet">
-      <string notr="true">font: 16pt &quot;仿宋&quot;;</string>
+      <string notr="true">	font: 16pt &quot;汉仪文黑-65W&quot;;</string>
      </property>
      <property name="text">
       <string>人员信息</string>
@@ -78,7 +81,7 @@ QComboBox:hover{
       <string notr="true">
 QComboBox:!hover{
 	background-color: rgb(255, 255, 255,30);
-	font: 14pt &quot;仿宋&quot;;
+	font: 14pt &quot;汉仪文黑-85W&quot;;
 	color: rgb(0, 0, 0);
         border-width:2px;
         border-style:solid;
@@ -109,7 +112,7 @@ QComboBox:hover{
      <property name="styleSheet">
       <string notr="true">QPushButton:!hover{
 	background-color: rgb(123, 117, 69,30);
-	font: 16pt &quot;仿宋&quot;;
+	font: 75 16pt &quot;汉仪文黑-85W&quot;;
 	color: rgb(0, 0, 0);
         border-width:2px;
         border-style:solid;

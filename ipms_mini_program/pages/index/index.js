@@ -2,7 +2,7 @@
 
 Page({
     data: {
-        parkingCapacity: 'XX/YY' // 初始实时容量数据
+        parkingCapacity: '142/250' // 初始实时容量数据
     },
     refreshCapacity: function () {
         this.setData({

@@ -35,19 +35,19 @@
   <widget class="QLabel" name="label_title">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>120</y>
-     <width>181</width>
-     <height>41</height>
+     <x>0</x>
+     <y>110</y>
+     <width>241</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(247, 235, 183);
 background-color: rgb(78, 78, 78，80);
-font: 18pt &quot;华文行楷&quot;;</string>
+font: 32pt &quot;方正黄庭坚行书 简繁&quot;;</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600; font-style:italic;&quot;&gt;驶入便捷&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:26pt; font-weight:600; font-style:italic;&quot;&gt;驶入便捷&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="loginButton">
@@ -62,7 +62,7 @@ font: 18pt &quot;华文行楷&quot;;</string>
    <property name="styleSheet">
     <string notr="true">QPushButton:!hover{
 	background-color: rgb(123, 117, 69,30);
-	font: 75 10pt &quot;Agency FB&quot;;
+	font: 75 10pt &quot;汉仪文黑-85W&quot;;
 	color: rgb(0, 0, 0);
         border-width:2px;
         border-style:solid;
@@ -72,7 +72,7 @@ font: 18pt &quot;华文行楷&quot;;</string>
     }
 QPushButton:hover{
 	background-color: rgb(123, 117, 69,90);
-	font: 75 10pt &quot;Agency FB&quot;;
+	font: 75 10pt &quot;汉仪文黑-85W&quot;;
 	color: rgb(0, 0, 0);
         border-width:2px;
         border-style:solid;
@@ -82,7 +82,7 @@ QPushButton:hover{
     }</string>
    </property>
    <property name="text">
-    <string>Login Now</string>
+    <string>登录</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -112,12 +112,16 @@ QPushButton:hover{
    </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit{
+	font: 75 10pt &quot;汉仪文黑-85W&quot;;
 	border-width:5px;
 	border-style:solid;
 	border-color:gray;
 	border-radius:10px;
 	padding: 0px 10px;
 }</string>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
    </property>
   </widget>
   <widget class="QLineEdit" name="accountLineEdit">
@@ -131,6 +135,7 @@ QPushButton:hover{
    </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit{
+	font: 75 10pt &quot;汉仪文黑-85W&quot;;
 	border-width:5px;
 	border-style:solid;
 	border-color:gray;
@@ -143,9 +148,9 @@ QPushButton:hover{
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>280</y>
+     <y>270</y>
      <width>51</width>
-     <height>41</height>
+     <height>51</height>
     </rect>
    </property>
    <property name="text">
@@ -174,19 +179,19 @@ QPushButton:hover{
   <widget class="QLabel" name="label_title02">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>180</y>
-     <width>171</width>
-     <height>51</height>
+     <x>50</x>
+     <y>170</y>
+     <width>251</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(247, 235, 183);
 background-color: rgb(78, 78, 78，80);
-font: 18pt &quot;华文行楷&quot;;</string>
+font: 22pt &quot;方正黄庭坚行书 简繁&quot;;</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;驶出畅通&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:26pt; font-weight:600; font-style:italic;&quot;&gt;驶出畅通&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -218,7 +223,7 @@ font: 18pt &quot;华文行楷&quot;;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 9pt &quot;仿宋&quot;;
+    <string notr="true">font: 9pt  &quot;汉仪文黑-65W&quot;;
 color: rgb(0, 138, 169);</string>
    </property>
    <property name="text">

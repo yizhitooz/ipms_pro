@@ -43,6 +43,7 @@ public:
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         pushButton = new QPushButton(ManageWidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setStyleSheet(QString::fromUtf8("	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";"));
 
         verticalLayout->addWidget(pushButton);
 
@@ -52,7 +53,7 @@ public:
         peopleComboBox->setStyleSheet(QString::fromUtf8("\n"
 "QComboBox:!hover{\n"
 "	background-color: rgb(255, 255, 255,30);\n"
-"	font: 14pt \"\344\273\277\345\256\213\";\n"
+"	font: 14pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	color: rgb(0, 0, 0);\n"
 "        border-width:2px;\n"
 "        border-style:solid;\n"
@@ -75,7 +76,7 @@ public:
 
         informationLabel = new QLabel(ManageWidget);
         informationLabel->setObjectName(QString::fromUtf8("informationLabel"));
-        informationLabel->setStyleSheet(QString::fromUtf8("font: 16pt \"\344\273\277\345\256\213\";"));
+        informationLabel->setStyleSheet(QString::fromUtf8("	font: 16pt \"\346\261\211\344\273\252\346\226\207\351\273\221-65W\";"));
 
         verticalLayout->addWidget(informationLabel);
 
@@ -85,7 +86,7 @@ public:
         levelComboBox->setStyleSheet(QString::fromUtf8("\n"
 "QComboBox:!hover{\n"
 "	background-color: rgb(255, 255, 255,30);\n"
-"	font: 14pt \"\344\273\277\345\256\213\";\n"
+"	font: 14pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	color: rgb(0, 0, 0);\n"
 "        border-width:2px;\n"
 "        border-style:solid;\n"
@@ -110,7 +111,7 @@ public:
         changeButton->setObjectName(QString::fromUtf8("changeButton"));
         changeButton->setStyleSheet(QString::fromUtf8("QPushButton:!hover{\n"
 "	background-color: rgb(123, 117, 69,30);\n"
-"	font: 16pt \"\344\273\277\345\256\213\";\n"
+"	font: 75 16pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	color: rgb(0, 0, 0);\n"
 "        border-width:2px;\n"
 "        border-style:solid;\n"

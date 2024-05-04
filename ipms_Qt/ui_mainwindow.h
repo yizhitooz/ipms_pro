@@ -41,8 +41,8 @@ public:
     QPushButton *inAndOutPageButton;
     QPushButton *garagePageButton;
     QPushButton *queryPageButton;
-    QPushButton *chargeRulePageButton;
     QPushButton *managePageButton;
+    QPushButton *chargeRulePageButton;
     QStackedWidget *stackedWidget;
     QWidget *inAndOutPage;
     QPushButton *inButton;
@@ -107,8 +107,8 @@ public:
         rechargePageButton->setObjectName(QString::fromUtf8("rechargePageButton"));
         rechargePageButton->setMinimumSize(QSize(0, 75));
         rechargePageButton->setStyleSheet(QString::fromUtf8("QPushButton:!hover{\n"
-"	font: 75 10pt \"Agency FB\";\n"
-"	background-color: rgb(255, 255, 255\357\274\21470);\n"
+"	font: 75 14pt \"\346\261\211\344\273\252\346\226\207\351\273\221-65W\";\n"
+"	background-color: rgb(56, 56, 56\357\274\21440);\n"
 "	color: rgb(242, 230, 172);\n"
 "        border-width:1px;\n"
 "        border-style:solid;\n"
@@ -117,7 +117,7 @@ public:
 "        padding: 1px 1px;\n"
 "    }\n"
 "QPushButton:hover{\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 16pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	background-color: rgb(123, 117, 69,70);\n"
 "	color: rgb(242, 230, 172);\n"
 "        border-width:1px;\n"
@@ -127,7 +127,7 @@ public:
 "        padding: 1px 1px;\n"
 "    }\n"
 "QPushButton:pressed{\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 16pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	background-color: rgb(123, 117, 69,40);\n"
 "	color: rgb(242, 230, 172);\n"
 "        border-width:1px;\n"
@@ -135,7 +135,8 @@ public:
 "        border-color:gray;\n"
 "        border-radius:5px;\n"
 "        padding: 1px 1px;\n"
-"    }"));
+""
+                        "    }"));
 
         verticalLayout->addWidget(rechargePageButton);
 
@@ -148,7 +149,7 @@ public:
         inAndOutPageButton->setSizePolicy(sizePolicy);
         inAndOutPageButton->setMinimumSize(QSize(0, 75));
         inAndOutPageButton->setStyleSheet(QString::fromUtf8("QPushButton:!hover{\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 14pt \"\346\261\211\344\273\252\346\226\207\351\273\221-65W\";\n"
 "	background-color: rgb(255, 255, 255\357\274\21470);\n"
 "	color: rgb(242, 230, 172);\n"
 "        border-width:1px;\n"
@@ -158,7 +159,7 @@ public:
 "        padding: 1px 1px;\n"
 "    }\n"
 "QPushButton:hover{\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 16pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	background-color: rgb(123, 117, 69,70);\n"
 "	color: rgb(242, 230, 172);\n"
 "        border-width:1px;\n"
@@ -168,7 +169,7 @@ public:
 "        padding: 1px 1px;\n"
 "    }\n"
 "QPushButton:pressed{\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 16pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	background-color: rgb(123, 117, 69,40);\n"
 "	color: rgb(242, 230, 172);\n"
 "        border-width:1px;\n"
@@ -176,7 +177,8 @@ public:
 "        border-color:gray;\n"
 "        border-radius:5px;\n"
 "        padding: 1px 1px;\n"
-"    }"));
+""
+                        "    }"));
 
         verticalLayout->addWidget(inAndOutPageButton);
 
@@ -184,7 +186,7 @@ public:
         garagePageButton->setObjectName(QString::fromUtf8("garagePageButton"));
         garagePageButton->setMinimumSize(QSize(0, 75));
         garagePageButton->setStyleSheet(QString::fromUtf8("QPushButton:!hover{\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 14pt \"\346\261\211\344\273\252\346\226\207\351\273\221-65W\";\n"
 "	background-color: rgb(255, 255, 255\357\274\21470);\n"
 "	color: rgb(242, 230, 172);\n"
 "        border-width:1px;\n"
@@ -194,7 +196,7 @@ public:
 "        padding: 1px 1px;\n"
 "    }\n"
 "QPushButton:hover{\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 16pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	background-color: rgb(123, 117, 69,70);\n"
 "	color: rgb(242, 230, 172);\n"
 "        border-width:1px;\n"
@@ -220,7 +222,7 @@ public:
         queryPageButton->setObjectName(QString::fromUtf8("queryPageButton"));
         queryPageButton->setMinimumSize(QSize(0, 75));
         queryPageButton->setStyleSheet(QString::fromUtf8("QPushButton:!hover{\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 14pt \"\346\261\211\344\273\252\346\226\207\351\273\221-65W\";\n"
 "	background-color: rgb(255, 255, 255\357\274\21470);\n"
 "	color: rgb(242, 230, 172);\n"
 "        border-width:1px;\n"
@@ -230,7 +232,7 @@ public:
 "        padding: 1px 1px;\n"
 "    }\n"
 "QPushButton:hover{\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 16pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	background-color: rgb(123, 117, 69,70);\n"
 "	color: rgb(242, 230, 172);\n"
 "        border-width:1px;\n"
@@ -240,7 +242,7 @@ public:
 "        padding: 1px 1px;\n"
 "    }\n"
 "QPushButton:pressed{\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 16pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	background-color: rgb(123, 117, 69,40);\n"
 "	color: rgb(242, 230, 172);\n"
 "        border-width:1px;\n"
@@ -248,51 +250,16 @@ public:
 "        border-color:gray;\n"
 "        border-radius:5px;\n"
 "        padding: 1px 1px;\n"
-"    }"));
+""
+                        "    }"));
 
         verticalLayout->addWidget(queryPageButton);
-
-        chargeRulePageButton = new QPushButton(groupBox);
-        chargeRulePageButton->setObjectName(QString::fromUtf8("chargeRulePageButton"));
-        chargeRulePageButton->setMinimumSize(QSize(0, 75));
-        chargeRulePageButton->setStyleSheet(QString::fromUtf8("QPushButton:!hover{\n"
-"	font: 75 10pt \"Agency FB\";\n"
-"	background-color: rgb(255, 255, 255\357\274\21470);\n"
-"	color: rgb(242, 230, 172);\n"
-"        border-width:1px;\n"
-"        border-style:solid;\n"
-"        border-color:gray;\n"
-"        border-radius:5px;\n"
-"        padding: 1px 1px;\n"
-"    }\n"
-"QPushButton:hover{\n"
-"	font: 75 10pt \"Agency FB\";\n"
-"	background-color: rgb(123, 117, 69,70);\n"
-"	color: rgb(242, 230, 172);\n"
-"        border-width:1px;\n"
-"        border-style:solid;\n"
-"        border-color:gray;\n"
-"        border-radius:5px;\n"
-"        padding: 1px 1px;\n"
-"    }\n"
-"QPushButton:pressed{\n"
-"	font: 75 10pt \"Agency FB\";\n"
-"	background-color: rgb(123, 117, 69,40);\n"
-"	color: rgb(242, 230, 172);\n"
-"        border-width:1px;\n"
-"        border-style:solid;\n"
-"        border-color:gray;\n"
-"        border-radius:5px;\n"
-"        padding: 1px 1px;\n"
-"    }"));
-
-        verticalLayout->addWidget(chargeRulePageButton);
 
         managePageButton = new QPushButton(groupBox);
         managePageButton->setObjectName(QString::fromUtf8("managePageButton"));
         managePageButton->setMinimumSize(QSize(0, 75));
         managePageButton->setStyleSheet(QString::fromUtf8("QPushButton:!hover{\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 14pt \"\346\261\211\344\273\252\346\226\207\351\273\221-65W\";\n"
 "	background-color: rgb(255, 255, 255\357\274\21470);\n"
 "	color: rgb(242, 230, 172);\n"
 "        border-width:1px;\n"
@@ -302,7 +269,7 @@ public:
 "        padding: 1px 1px;\n"
 "    }\n"
 "QPushButton:hover{\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 16pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	background-color: rgb(123, 117, 69,70);\n"
 "	color: rgb(242, 230, 172);\n"
 "        border-width:1px;\n"
@@ -312,7 +279,7 @@ public:
 "        padding: 1px 1px;\n"
 "    }\n"
 "QPushButton:pressed{\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 16pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	background-color: rgb(123, 117, 69,40);\n"
 "	color: rgb(242, 230, 172);\n"
 "        border-width:1px;\n"
@@ -320,9 +287,47 @@ public:
 "        border-color:gray;\n"
 "        border-radius:5px;\n"
 "        padding: 1px 1px;\n"
-"    }"));
+""
+                        "    }"));
 
         verticalLayout->addWidget(managePageButton);
+
+        chargeRulePageButton = new QPushButton(groupBox);
+        chargeRulePageButton->setObjectName(QString::fromUtf8("chargeRulePageButton"));
+        chargeRulePageButton->setMinimumSize(QSize(0, 75));
+        chargeRulePageButton->setStyleSheet(QString::fromUtf8("QPushButton:!hover{\n"
+"	font: 75 14pt \"\346\261\211\344\273\252\346\226\207\351\273\221-65W\";\n"
+"	background-color: rgb(255, 255, 255\357\274\21470);\n"
+"	color: rgb(242, 230, 172);\n"
+"        border-width:1px;\n"
+"        border-style:solid;\n"
+"        border-color:gray;\n"
+"        border-radius:5px;\n"
+"        padding: 1px 1px;\n"
+"    }\n"
+"QPushButton:hover{\n"
+"	font: 75 16pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
+"	background-color: rgb(123, 117, 69,70);\n"
+"	color: rgb(242, 230, 172);\n"
+"        border-width:1px;\n"
+"        border-style:solid;\n"
+"        border-color:gray;\n"
+"        border-radius:5px;\n"
+"        padding: 1px 1px;\n"
+"    }\n"
+"QPushButton:pressed{\n"
+"	font: 75 16pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
+"	background-color: rgb(123, 117, 69,40);\n"
+"	color: rgb(242, 230, 172);\n"
+"        border-width:1px;\n"
+"        border-style:solid;\n"
+"        border-color:gray;\n"
+"        border-radius:5px;\n"
+"        padding: 1px 1px;\n"
+""
+                        "    }"));
+
+        verticalLayout->addWidget(chargeRulePageButton);
 
 
         horizontalLayout->addWidget(groupBox);
@@ -336,7 +341,7 @@ public:
         inButton->setGeometry(QRect(40, 410, 101, 51));
         inButton->setStyleSheet(QString::fromUtf8("QPushButton:!hover{\n"
 "	background-color: rgb(123, 117, 69,30);\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	color: rgb(0, 0, 0);\n"
 "        border-width:2px;\n"
 "        border-style:solid;\n"
@@ -359,7 +364,7 @@ public:
         outButton->setGeometry(QRect(200, 410, 101, 51));
         outButton->setStyleSheet(QString::fromUtf8("QPushButton:!hover{\n"
 "	background-color: rgb(123, 117, 69,30);\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	color: rgb(0, 0, 0);\n"
 "        border-width:2px;\n"
 "        border-style:solid;\n"
@@ -380,6 +385,7 @@ public:
         spaceLabel = new QLabel(inAndOutPage);
         spaceLabel->setObjectName(QString::fromUtf8("spaceLabel"));
         spaceLabel->setGeometry(QRect(50, 30, 241, 141));
+        spaceLabel->setStyleSheet(QString::fromUtf8("	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-65W\";"));
         layoutWidget = new QWidget(inAndOutPage);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(40, 250, 271, 131));
@@ -393,12 +399,14 @@ public:
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         label_7 = new QLabel(layoutWidget);
         label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setStyleSheet(QString::fromUtf8("	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";"));
 
         horizontalLayout_2->addWidget(label_7);
 
         vehicleIDLineEdit = new QLineEdit(layoutWidget);
         vehicleIDLineEdit->setObjectName(QString::fromUtf8("vehicleIDLineEdit"));
         vehicleIDLineEdit->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	border-width:2px;\n"
 "	border-style:solid;\n"
 "	border-color:gray;\n"
@@ -416,11 +424,13 @@ public:
         horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
         label_8 = new QLabel(layoutWidget);
         label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setStyleSheet(QString::fromUtf8("	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";"));
 
         horizontalLayout_6->addWidget(label_8);
 
         ParkingLotComboBox = new QComboBox(layoutWidget);
         ParkingLotComboBox->setObjectName(QString::fromUtf8("ParkingLotComboBox"));
+        ParkingLotComboBox->setStyleSheet(QString::fromUtf8("	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";"));
 
         horizontalLayout_6->addWidget(ParkingLotComboBox);
 
@@ -430,9 +440,11 @@ public:
         billLabel = new QLabel(inAndOutPage);
         billLabel->setObjectName(QString::fromUtf8("billLabel"));
         billLabel->setGeometry(QRect(360, 130, 301, 291));
+        billLabel->setStyleSheet(QString::fromUtf8("	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-65W\";"));
         pushButtonCheck = new QPushButton(inAndOutPage);
         pushButtonCheck->setObjectName(QString::fromUtf8("pushButtonCheck"));
         pushButtonCheck->setGeometry(QRect(250, 20, 92, 28));
+        pushButtonCheck->setStyleSheet(QString::fromUtf8("	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";"));
         stackedWidget->addWidget(inAndOutPage);
         informationPage = new QWidget();
         informationPage->setObjectName(QString::fromUtf8("informationPage"));
@@ -442,7 +454,7 @@ public:
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         AllInformatioButton = new QPushButton(informationPage);
         AllInformatioButton->setObjectName(QString::fromUtf8("AllInformatioButton"));
-        AllInformatioButton->setStyleSheet(QString::fromUtf8("font: 12pt \"\344\273\277\345\256\213\";"));
+        AllInformatioButton->setStyleSheet(QString::fromUtf8("	font: 75 12pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";"));
 
         verticalLayout_3->addWidget(AllInformatioButton);
 
@@ -452,7 +464,7 @@ public:
         label = new QLabel(informationPage);
         label->setObjectName(QString::fromUtf8("label"));
         label->setStyleSheet(QString::fromUtf8("background-color: rgb(123, 117, 69,99);\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-65W\";\n"
 "	color: rgb(242, 230, 172);"));
 
         horizontalLayout_4->addWidget(label);
@@ -460,6 +472,7 @@ public:
         informationVehicleIDLineEdit = new QLineEdit(informationPage);
         informationVehicleIDLineEdit->setObjectName(QString::fromUtf8("informationVehicleIDLineEdit"));
         informationVehicleIDLineEdit->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	border-width:2px;\n"
 "	border-style:solid;\n"
 "	border-color:gray;\n"
@@ -472,14 +485,15 @@ public:
         label_6 = new QLabel(informationPage);
         label_6->setObjectName(QString::fromUtf8("label_6"));
         label_6->setStyleSheet(QString::fromUtf8("background-color: rgb(123, 117, 69,99);\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	color: rgb(242, 230, 172);"));
 
         horizontalLayout_4->addWidget(label_6);
 
         dateEdit = new QDateEdit(informationPage);
         dateEdit->setObjectName(QString::fromUtf8("dateEdit"));
-        dateEdit->setDateTime(QDateTime(QDate(2022, 12, 31), QTime(8, 0, 1)));
+        dateEdit->setStyleSheet(QString::fromUtf8("	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";"));
+        dateEdit->setDateTime(QDateTime(QDate(2022, 12, 30), QTime(16, 0, 1)));
 
         horizontalLayout_4->addWidget(dateEdit);
 
@@ -487,7 +501,7 @@ public:
         informationSearchButton->setObjectName(QString::fromUtf8("informationSearchButton"));
         informationSearchButton->setStyleSheet(QString::fromUtf8("QPushButton:!hover{\n"
 "	background-color: rgb(123, 117, 69,30);\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	color: rgb(0, 0, 0);\n"
 "        border-width:2px;\n"
 "        border-style:solid;\n"
@@ -513,6 +527,7 @@ public:
 
         informationTableView = new QTableView(informationPage);
         informationTableView->setObjectName(QString::fromUtf8("informationTableView"));
+        informationTableView->setStyleSheet(QString::fromUtf8("	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-65W\";"));
 
         verticalLayout_3->addWidget(informationTableView);
 
@@ -529,7 +544,7 @@ public:
         label_16 = new QLabel(garagePage);
         label_16->setObjectName(QString::fromUtf8("label_16"));
         label_16->setStyleSheet(QString::fromUtf8("background-color: rgb(123, 117, 69,99);\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	color: rgb(242, 230, 172);"));
 
         horizontalLayout_3->addWidget(label_16);
@@ -538,7 +553,7 @@ public:
         refreshButton->setObjectName(QString::fromUtf8("refreshButton"));
         refreshButton->setStyleSheet(QString::fromUtf8("QPushButton:!hover{\n"
 "	background-color: rgb(123, 117, 69,30);\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-65W\";\n"
 "	color: rgb(0, 0, 0);\n"
 "        border-width:2px;\n"
 "        border-style:solid;\n"
@@ -548,7 +563,7 @@ public:
 "    }\n"
 "QPushButton:hover{\n"
 "	background-color: rgb(123, 117, 69,90);\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	color: rgb(0, 0, 0);\n"
 "        border-width:2px;\n"
 "        border-style:solid;\n"
@@ -585,7 +600,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -596,12 +611,12 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "\346\231\272\350\203\275\345\201\234\350\275\246\347\256\241\347\220\206\347\263\273\347\273\237", nullptr));
         groupBox->setTitle(QString());
         rechargePageButton->setText(QCoreApplication::translate("MainWindow", "\345\205\205\345\200\274", nullptr));
-        inAndOutPageButton->setText(QCoreApplication::translate("MainWindow", "\345\207\272\345\205\245\345\234\272\347\256\241\347\220\206", nullptr));
+        inAndOutPageButton->setText(QCoreApplication::translate("MainWindow", "\345\207\272\345\205\245\347\231\273\350\256\260", nullptr));
         garagePageButton->setText(QCoreApplication::translate("MainWindow", "\346\237\245\347\234\213\350\275\246\345\272\223", nullptr));
         queryPageButton->setText(QCoreApplication::translate("MainWindow", "\346\237\245\350\257\242\345\216\206\345\217\262\n"
 "\345\201\234\350\275\246\344\277\241\346\201\257", nullptr));
-        chargeRulePageButton->setText(QCoreApplication::translate("MainWindow", "\346\224\266\350\264\271\350\247\204\345\210\231", nullptr));
         managePageButton->setText(QCoreApplication::translate("MainWindow", "\347\256\241\347\220\206", nullptr));
+        chargeRulePageButton->setText(QCoreApplication::translate("MainWindow", "\346\224\266\350\264\271\350\247\204\345\210\231", nullptr));
         inButton->setText(QCoreApplication::translate("MainWindow", "\345\205\245\345\234\272", nullptr));
         outButton->setText(QCoreApplication::translate("MainWindow", "\345\207\272\345\234\272", nullptr));
         spaceLabel->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#318eff;\">\350\275\246\344\275\215\344\275\231\351\207\217</span></p></body></html>", nullptr));

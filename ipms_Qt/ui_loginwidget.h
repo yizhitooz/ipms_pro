@@ -44,16 +44,16 @@ public:
 ""));
         label_title = new QLabel(LoginWidget);
         label_title->setObjectName(QString::fromUtf8("label_title"));
-        label_title->setGeometry(QRect(30, 120, 181, 41));
+        label_title->setGeometry(QRect(0, 110, 241, 71));
         label_title->setStyleSheet(QString::fromUtf8("color: rgb(247, 235, 183);\n"
 "background-color: rgb(78, 78, 78\357\274\21480);\n"
-"font: 18pt \"\345\215\216\346\226\207\350\241\214\346\245\267\";"));
+"font: 32pt \"\346\226\271\346\255\243\351\273\204\345\272\255\345\235\232\350\241\214\344\271\246 \347\256\200\347\271\201\";"));
         loginButton = new QPushButton(LoginWidget);
         loginButton->setObjectName(QString::fromUtf8("loginButton"));
         loginButton->setGeometry(QRect(120, 420, 121, 41));
         loginButton->setStyleSheet(QString::fromUtf8("QPushButton:!hover{\n"
 "	background-color: rgb(123, 117, 69,30);\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	color: rgb(0, 0, 0);\n"
 "        border-width:2px;\n"
 "        border-style:solid;\n"
@@ -63,7 +63,7 @@ public:
 "    }\n"
 "QPushButton:hover{\n"
 "	background-color: rgb(123, 117, 69,90);\n"
-"	font: 75 10pt \"Agency FB\";\n"
+"	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	color: rgb(0, 0, 0);\n"
 "        border-width:2px;\n"
 "        border-style:solid;\n"
@@ -79,16 +79,19 @@ public:
         passworkLineEdit->setObjectName(QString::fromUtf8("passworkLineEdit"));
         passworkLineEdit->setGeometry(QRect(70, 340, 254, 41));
         passworkLineEdit->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	border-width:5px;\n"
 "	border-style:solid;\n"
 "	border-color:gray;\n"
 "	border-radius:10px;\n"
 "	padding: 0px 10px;\n"
 "}"));
+        passworkLineEdit->setEchoMode(QLineEdit::Password);
         accountLineEdit = new QLineEdit(LoginWidget);
         accountLineEdit->setObjectName(QString::fromUtf8("accountLineEdit"));
         accountLineEdit->setGeometry(QRect(70, 280, 254, 41));
         accountLineEdit->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"	font: 75 10pt \"\346\261\211\344\273\252\346\226\207\351\273\221-85W\";\n"
 "	border-width:5px;\n"
 "	border-style:solid;\n"
 "	border-color:gray;\n"
@@ -97,7 +100,7 @@ public:
 "}"));
         label_3 = new QLabel(LoginWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(10, 280, 51, 41));
+        label_3->setGeometry(QRect(10, 270, 51, 51));
         label_3->setPixmap(QPixmap(QString::fromUtf8(":/prefix1/image/icons8-login-50.png")));
         label_4 = new QLabel(LoginWidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
@@ -105,10 +108,10 @@ public:
         label_4->setPixmap(QPixmap(QString::fromUtf8(":/prefix1/image/icons8-password-48.png")));
         label_title02 = new QLabel(LoginWidget);
         label_title02->setObjectName(QString::fromUtf8("label_title02"));
-        label_title02->setGeometry(QRect(120, 180, 171, 51));
+        label_title02->setGeometry(QRect(50, 170, 251, 71));
         label_title02->setStyleSheet(QString::fromUtf8("color: rgb(247, 235, 183);\n"
 "background-color: rgb(78, 78, 78\357\274\21480);\n"
-"font: 18pt \"\345\215\216\346\226\207\350\241\214\346\245\267\";"));
+"font: 22pt \"\346\226\271\346\255\243\351\273\204\345\272\255\345\235\232\350\241\214\344\271\246 \347\256\200\347\271\201\";"));
         label = new QLabel(LoginWidget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(0, 0, 81, 71));
@@ -117,7 +120,7 @@ public:
         label_5 = new QLabel(LoginWidget);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(70, 10, 231, 51));
-        label_5->setStyleSheet(QString::fromUtf8("font: 9pt \"\344\273\277\345\256\213\";\n"
+        label_5->setStyleSheet(QString::fromUtf8("font: 9pt  \"\346\261\211\344\273\252\346\226\207\351\273\221-65W\";\n"
 "color: rgb(0, 138, 169);"));
 
         retranslateUi(LoginWidget);
@@ -128,12 +131,12 @@ public:
     void retranslateUi(QWidget *LoginWidget)
     {
         LoginWidget->setWindowTitle(QCoreApplication::translate("LoginWidget", "\347\231\273\345\275\225", nullptr));
-        label_title->setText(QCoreApplication::translate("LoginWidget", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:600; font-style:italic;\">\351\251\266\345\205\245\344\276\277\346\215\267</span></p></body></html>", nullptr));
-        loginButton->setText(QCoreApplication::translate("LoginWidget", "Login Now", nullptr));
+        label_title->setText(QCoreApplication::translate("LoginWidget", "<html><head/><body><p align=\"center\"><span style=\" font-size:26pt; font-weight:600; font-style:italic;\">\351\251\266\345\205\245\344\276\277\346\215\267</span></p></body></html>", nullptr));
+        loginButton->setText(QCoreApplication::translate("LoginWidget", "\347\231\273\345\275\225", nullptr));
         label_2->setText(QString());
         label_3->setText(QString());
         label_4->setText(QString());
-        label_title02->setText(QCoreApplication::translate("LoginWidget", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600; font-style:italic;\">\351\251\266\345\207\272\347\225\205\351\200\232</span></p></body></html>", nullptr));
+        label_title02->setText(QCoreApplication::translate("LoginWidget", "<html><head/><body><p align=\"center\"><span style=\" font-size:26pt; font-weight:600; font-style:italic;\">\351\251\266\345\207\272\347\225\205\351\200\232</span></p></body></html>", nullptr));
         label->setText(QString());
         label_5->setText(QCoreApplication::translate("LoginWidget", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:700;\">\346\231\272\350\203\275\345\201\234\350\275\246\347\256\241\347\220\206\347\263\273\347\273\237</span></p></body></html>", nullptr));
     } // retranslateUi
