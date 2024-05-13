@@ -1,6 +1,13 @@
+# application.yml
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/ipms
     username: root
     password: 123456
+  mqtt:
+    host: tcp://localhost:1883
+    username: admin
+    password: adg281764
+    topic: your/subscribed/topic
+

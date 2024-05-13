@@ -83,7 +83,7 @@ if __name__ == '__main__':
             plate_color = ', '.join([item['plate_color'] for item in dict_list if 'plate_color' in item])
             plate_no = ', '.join([item['plate_no'] for item in dict_list if 'plate_no' in item])
             plate_confidence = [item['score'] for item in dict_list if 'plate_no' in item]
-            if plate_confidence < 0.9:
+            if plate_confidence < 0.8:
                 print("车牌不可信")
                 continue
             if plate_no:

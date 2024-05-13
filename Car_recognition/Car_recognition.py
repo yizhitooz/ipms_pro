@@ -8,8 +8,6 @@ import torch
 # from numpy import random
 import copy
 import numpy as np
-from picamera2 import Picamera2
-from database_op import insert_data_when_enter
 from models.experimental import attempt_load
 from utils.datasets import letterbox
 from utils.general import check_img_size, non_max_suppression_face, scale_coords
@@ -326,6 +324,8 @@ if __name__ == '__main__':
     parser.add_argument('--output', type=str, default='result1', help='source')
     parser.add_argument('--video', type=str, default='', help='source')
 
+    if torch.cuda.is_available():
+        print("cuda is available")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     # device =torch.device("cpu")
 
