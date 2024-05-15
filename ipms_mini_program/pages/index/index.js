@@ -2,18 +2,47 @@
 
 Page({
     data: {
-        parkingCapacity: '142/250' // 初始实时容量数据
+        current: 0,
+        max: 300,
+        parkingCapacity: '0/300'
+    },
+    onReady() {
+        this.refreshCapacity()
     },
     refreshCapacity: function () {
-        this.setData({
-            parkingCapacity: 'Updated XX/YY' // 更新实时容量数据
+        wx.request({
+            url: 'http://localhost:8080/parking/lot/update/1',
+            method: 'GET',
+            success: (res) => {
+                if (res.data.code == 200) {
+                    const current = res.data.data.currentCarPark
+                    const max = res.data.data.maxCarPark
+                    this.setData({
+                        current: current,
+                        max: max,
+                        parkingCapacity: `${current}/${max}`
+                    })
+                    console.log("parkingCapacity:" + this.data.parkingCapacity)
+                } else {
+                    wx.showToast({
+                        title: '刷新失败',
+                        icon: 'error'
+                    })
+                }
+            },
+            fail: (_res) => {
+                wx.showToast({
+                    title: '刷新失败',
+                    icon: 'error'
+                })
+            }
         })
     },
     scanQRCode: function (_options) {
         // 只允许从相机扫码
         wx.scanCode({
             onlyFromCamera: true,
-            success(res) {
+            success: (res) => {
                 console.log(res)
                 const parkingInfo = JSON.parse(res.result)
 
@@ -22,10 +51,11 @@ Page({
                         'plate=' + encodeURIComponent(parkingInfo.plate) +
                         '&id=' + encodeURIComponent(parkingInfo.id)
                 })
-            },fail(_res){
+            },
+            fail(_res) {
                 wx.showToast({
-                  title: '扫码失败',
-                  icon:'error'
+                    title: '扫码失败',
+                    icon: 'error'
                 })
             }
         })
@@ -35,9 +65,7 @@ Page({
             url: '/pages/map/map'
         })
     },
-    // 以下是添加的部分，用于触发扫码功能
     onTapScanQRCode: function () {
-        // 点击按钮时触发扫码功能
         this.scanQRCode();
     },
     onTapPhoneCall: function () {

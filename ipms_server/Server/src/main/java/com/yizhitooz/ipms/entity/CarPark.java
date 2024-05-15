@@ -1,10 +1,10 @@
 package com.yizhitooz.ipms.entity;
 
-import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Builder
+@NoArgsConstructor
 public class CarPark {
     private String plate;
     private int id;

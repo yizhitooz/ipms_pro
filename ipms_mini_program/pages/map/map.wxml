@@ -10,7 +10,7 @@
     </view>
 
     <view class="input-container">
-        <input class="input" type="text" placeholder="请输入车牌号" bindinput="inputChange" />
+        <input class="input" type="text" placeholder="请输入车牌号" bindinput="inputChange"  id="palteInput"/>
         <button class="btn" bindtap="search">查找</button>
     </view>
 

@@ -6,8 +6,8 @@ spring:
     username: root
     password: 123456
   mqtt:
-    host: tcp://localhost:1883
-    username: admin
-    password: adg281764
-    topic: your/subscribed/topic
+    broker: tcp://localhost:1883
+    clientId: myClientId
+    topic: parking/slot/status
+    qos: 1
 

@@ -1,6 +1,7 @@
 package com.yizhitooz.ipms.service;
 
 import com.yizhitooz.ipms.entity.ParkingLot;
+import com.yizhitooz.ipms.mapper.CarParkMapper;
 import com.yizhitooz.ipms.mapper.ParkingLotMapper;
 import com.yizhitooz.ipms.mapper.ParkingRecordMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ import java.util.List;
 public class ParkingLotService {
     @Autowired
     ParkingLotMapper parkingLotMapper;
+    @Autowired
+    CarParkMapper carParkMapper;
 
     public ParkingLot getParkingLot(int id) {
         return parkingLotMapper.selectById(id);
@@ -19,5 +22,10 @@ public class ParkingLotService {
 
     public List<ParkingLot> getAllParkingLot() {
         return parkingLotMapper.selectAll();
+    }
+
+    public void updateParkingLotCarPark(ParkingLot parkingLot) {
+       Integer current = carParkMapper.countNotNullPlates(parkingLot.getId());
+       parkingLotMapper.updateCarPark(parkingLot.getId(), current);
     }
 }
