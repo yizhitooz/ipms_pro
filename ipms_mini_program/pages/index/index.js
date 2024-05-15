@@ -6,7 +6,7 @@ Page({
         max: 300,
         parkingCapacity: '0/300'
     },
-    onReady() {
+    onLoad() {
         this.refreshCapacity()
     },
     refreshCapacity: function () {
