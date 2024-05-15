@@ -14,3 +14,6 @@ Debug*/
 *.UZALWONG
 imgs/
 result/
+.clang-format
+*.code-workspace
+*.clangd
