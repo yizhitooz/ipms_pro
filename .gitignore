@@ -4,7 +4,7 @@ tmp/
 target/
 build/
 object/
-.*/
+.*
 venv
 debug/
 *.DEBUG
@@ -17,3 +17,4 @@ result/
 .clang-format
 *.code-workspace
 *.clangd
+out/
