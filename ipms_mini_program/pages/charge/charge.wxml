@@ -1,4 +1,5 @@
 <!-- parkingInfoPage.wxml -->
+
 <view class="container">
     <!-- 停车信息 -->
     <view class="parking-info">

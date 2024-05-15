@@ -1,9 +1,27 @@
 // pages/charge/map.js
 Page({
     data: {
-        plate: ''
+        user: {
+            latitude: '',
+            longitude: '',
+        },
+        car: {
+            latitude: '',
+            longitude: '',
+        },
+        // 观音山：25.301772,110.408534
+        GYS: {
+            latitude: '25.301772',
+            longitude: '110.408534',
+        },
+        // 南大门：25.304346,110.419378
+        NDM: {
+            latitude: '25.304346',
+            longitude: '110.419378',
+        },
+        markers: []
     },
-    onLoad(options) {
+    onLoad(_options) {
         wx.getLocation({
             type: 'wgs84', // 使用 GPS 坐标系
             success: (res) => {
@@ -12,15 +30,26 @@ Page({
                 console.log('当前位置：', latitude, longitude);
                 // 更新页面数据
                 this.setData({
-                    latitude: latitude,
-                    longitude: longitude
-                });
+                    user: {
+                        latitude: latitude,
+                        longitude: longitude
+                    }
+                })
             },
-            fail: (res) => {
-                console.log('获取位置失败：', res);
-                // 处理获取位置失败的情况
+            fail: (_res) => {
+                wx.showToast({
+                    title: '定位失败',
+                    icon: 'error'
+                })
+                this.setData({
+                    // 花江校区：25.311923,110.416742
+                    latitude: 25.311923,
+                    longitude: 110.416742
+                })
             }
         })
+        const mapCtx = wx.createMapContext('map')
+        mapCtx.moveToLocation()
     },
     inputChange: function (e) {
         console.log('输入框内容变化：', e.detail.value);
@@ -51,12 +80,22 @@ Page({
                             console.log('经度：', longitude)
                             console.log('纬度：', latitude)
                             this.setData({
-                                latitude: latitude,
-                                longitude: longitude,
-                                canNavigate: true // 开启导航按钮
+                                car: {
+                                    latitude: latitude,
+                                    longitude: longitude
+                                },
+                                canNavigate: true, // 允许导航
+                                markers: [{
+                                    id: 0,
+                                    latitude: latitude,
+                                    longitude: longitude
+                                }]
                             })
                         } else {
-                            console.log('没有找到匹配的坐标')
+                            wx.showToast({
+                                title: '没有找到匹配的坐标',
+                                icon: 'error'
+                            })
                         }
                     } else {
                         wx.showToast({
@@ -64,14 +103,40 @@ Page({
                             icon: 'error'
                         })
                     }
+                },
+                fail: (_res) => {
+                    wx.showToast({
+                        title: '请求失败',
+                        icon: 'error'
+                    })
+                    this.setData({
+                        car: {
+                            // 五教：25.314395,110.416903
+                            latitude: 25.314395,
+                            longitude: 110.416903
+                        },
+                        canNavigate: true
+                    })
                 }
             })
         }
     },
-    navigate: function () {
+    navigateToCar: function () {
         wx.openLocation({
-            latitude: this.data.latitude,
-            longitude: this.data.longitude,
+            latitude: parseFloat(this.data.car.latitude),
+            longitude: parseFloat(this.data.car.longitude),
+        })
+    },
+    navigateToGYS: function () {
+        wx.openLocation({
+            latitude: parseFloat(this.data.GYS.latitude),
+            longitude: parseFloat(this.data.GYS.longitude),
+        })
+    },
+    navigateToNDM: function () {
+        wx.openLocation({
+            latitude: parseFloat(this.data.NDM.latitude),
+            longitude: parseFloat(this.data.NDM.longitude),
         })
     }
 })
