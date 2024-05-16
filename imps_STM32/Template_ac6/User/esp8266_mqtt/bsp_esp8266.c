@@ -4,6 +4,7 @@
  */
 
 #include "bsp_esp8266.h"
+#include "common.h"
 
 /**
  * @brief
