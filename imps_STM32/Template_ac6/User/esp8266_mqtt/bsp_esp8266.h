@@ -129,4 +129,13 @@ void ESP8266_Init();
  */
 void ESP8266_Rst();
 
+/**
+ * @brief
+ * 开启TCP客户端透传配置测试
+ */
+void ESP8266_StaTcpClient_Unvarnish_ConfigTest();
+
+bool ESP8266_SendString(FunctionalState enumEnUnvarnishTx, char *pStr,
+                        u32 ulStrLength, ENUM_ID_NO_TypeDef ucId);
+
 #endif /* _BSP_ESP_8266 */
