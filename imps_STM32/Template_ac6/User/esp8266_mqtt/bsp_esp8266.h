@@ -12,9 +12,7 @@
 #ifndef _BSP_ESP_8266
 #define _BSP_ESP_8266
 #include "stm32f10x.h"
-#include "bsp_usart.h"
 #include "stdbool.h"
-#include <string.h>
 
 #if defined(__CC_ARM)
 #pragma anon_unions

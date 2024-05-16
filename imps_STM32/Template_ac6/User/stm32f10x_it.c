@@ -23,6 +23,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
 #include "bsp_esp8266.h"
+#include "bsp_usart.h"
+#include <string.h>
 
 /** @addtogroup STM32F10x_StdPeriph_Template
  * @{

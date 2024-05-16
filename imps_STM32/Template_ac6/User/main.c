@@ -9,6 +9,7 @@
  *
  */
 #include "bsp_gpio.h"
+#include "bsp_usart.h"
 #include "bsp_esp8266.h"
 #include "core_delay.h"
 #include <stdio.h>

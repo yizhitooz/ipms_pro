@@ -6,6 +6,15 @@
 #include "bsp_esp8266.h"
 #include "core_delay.h"
 #include "common.h"
+#include <stdio.h>
+#include <string.h>
+#include "stdbool.h"
+#include "bsp_usart.h"
+
+struct STRUCT_USARTx_Fram strEsp8266_Fram_Record = {0};
+struct STRUCT_USARTx_Fram strUSART_Fram_Record   = {0};
+
+volatile uint8_t ucTcpClosedFlag = 0;
 
 /**
  * @brief
